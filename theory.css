@@ -1,0 +1,641 @@
+/* Reset (Optional, but recommended) */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scrollbar-color: #933 #fff;
+}
+
+html, body {
+    height: 100%; /* Make sure the html and body take up the full viewport height */
+    margin: 0; /* Reset default margins */
+    padding: 0;
+}
+
+body {
+    background-image: url('../media/bgimg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: black;
+    font-family: "Times New Roman", sans-serif;
+    line-height: 1.6;
+    display: flex;           /* Enable Flexbox for the body */
+    flex-direction: column;  /* Stack content vertically */
+}
+
+header {
+    background-color: #93332e;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+#headerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#menuToggle {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.logo-text {
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 1rem;
+}
+
+.img img {
+    max-height: 100px;
+    width: auto;
+}
+
+/* Sidebar Styles */
+aside {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    background-color: #93332e;
+    color: white;
+    min-height: 100vh;
+    max-height: 100vh;
+    height: auto;
+    padding-top: 20px;
+    transition: left 0.3s ease;
+    z-index: 999;
+    top: 100px;
+    font-size: 25px;
+    overflow-y: auto;
+    scrollbar-color: #933 #fff;
+}
+
+aside.show {
+    left: 0; /* Sidebar remains on the left, so this doesn't apply in a large screen */
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside ul li {
+    margin: 0 1rem;
+}
+
+aside ul li a {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+aside ul li a:hover {
+    color: #cdc2ae;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dropdown Menu */
+aside li {
+    position: relative;
+}
+
+aside li ul.dropdown {
+    display: none; /* Initially hide the dropdown */
+    position: static; /* Display below the parent */
+    box-shadow: none; /* Remove box-shadow */
+    background-color: transparent;
+    padding: 0;
+    width: 100%; /* Expand to take the width */
+    scroll-behavior: smooth;
+}
+
+aside li:hover > ul.dropdown {
+    display: block;
+}
+
+aside li ul.dropdown li {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1rem;
+    display: block;
+}
+
+.dropdown a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown a:hover {
+    color: #93332e;
+    background-color: cornsilk;
+}
+
+.dropdown hr {
+    border: none;
+    height: 1px;
+    background-color: cornsilk;
+    margin: 0.5rem 0;
+}
+
+
+/* First Section (Home) */
+main {
+    margin-left: 0;  /* Adjusted to accommodate the sidebar */
+    padding: 20px; /* Add padding for content spacing */
+    flex: 1; /* Take up remaining vertical space */
+    font-size: 1.2rem; /* Increased Font Size */
+    position: relative;
+}
+
+.first {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+}
+
+.leftsection {
+    font-size: 1.5rem;
+    width: 50%;
+    margin: 0;
+}
+
+.home {
+    color: #dc3545;
+    font-size: 2.5rem;
+}
+
+.para {
+    font-size: 1.5rem;
+}
+
+.rightsection {
+    width: 40%;
+    max-width: 400px;
+    height: auto;
+}
+
+.rightsection img {
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.leftsection > div {
+    font-size: 1rem;
+}
+
+.skin {
+    color: #dc3545;
+}
+
+#element {
+    font-size: 1.5rem;
+    color: #dc3545;
+}
+
+main hr {
+    border: 0;
+    background-color: #dc3545;
+    height: 0.1rem;
+    margin: 2rem auto;
+    width: 80%;
+}
+
+.second {
+    max-width: 90%;
+    margin: 2rem auto;
+    min-height: 50vh;
+    padding: 1rem;
+}
+
+.second h1 {
+    font-size: 1.8rem;
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #f5f6f6;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer h1 {
+    font-size: 1.8rem;
+    color: #dc3545;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.footer h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    color: #dc3545;
+    margin: 0.5rem 0;
+}
+
+.footer h2 a {
+    text-decoration: none;
+    color: #dc3545;
+    transition: color 0.3s;
+}
+
+.footer h2 a:hover {
+    color: #93332e;
+}
+
+.footer p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    color: black;
+    margin: 0.5rem 0;
+}
+
+/* Box */
+.box {
+    margin: 2rem auto;
+    width: 80%;
+    text-align: center;
+}
+
+.box ul {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: #dc3545;
+    padding-left: 2rem;
+    text-align: left;
+    list-style-type: disc;
+}
+
+/* Image */
+.image img {
+    max-width: 50%;
+    height: auto;
+    margin: 2rem auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Department */
+.dept {
+    background-color: #93332e;
+    color: #f5f6f6;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.dept a {
+    color: #f5f6f6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.dept a:hover {
+    color: #cdc2ae;
+}
+
+/* Image */
+.img img {
+    max-width: 50%;
+    height: auto;
+    background-color: #f5f6f6;
+    padding: 0.2rem;
+    margin: 0.5rem auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+      padding: 12px 20px;
+      background-color:#93332e;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 25px;
+      margin-bottom:5%;
+      margin-top: 2%;
+  }
+
+  button:hover {
+      background-color: #dc3545;
+  }
+
+  #fixedNav {
+    padding: 10px;
+    position: sticky; /* Make it stick */
+    top: 0;             /* Stick it at the top of the main content area */
+    z-index: 998;         /* Ensure it sits on top of most other content */
+    width: 100%;
+    text-align: center;   
+    margin-left: 0;   /* Create space to prevent over lap with the asidetag */
+    transition: left 0.3s;
+    row-gap: 25px;
+
+}
+
+#fixedNav a {
+    color: #ffffff;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 1.1em;
+    margin-right:  10px 25px;  /* Space between links */
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #93332e;
+    transition: margin 0.3s;
+}
+
+#fixedNav a:hover {
+    background-color: #dc3545;
+    color: #ffffff;
+    margin: 10px 20px; /* increase the margin*/
+    margin-top: 10px;
+}
+
+#topBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#topBtn:hover {
+    background-color: #fa5768;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    #fixedNav {
+        left:0; /* Show the sidebar when the 'show' class is applied */
+    }
+
+    #fixedNav a {
+        margin: 0 10px;  /* Reduced margin on smaller screens */
+        font-size: 1.2rem; /* Reduce font size on smaller screens */
+        padding: 3px 7px;
+        
+    }
+
+    #headerContent {
+        display: flex;
+        flex-direction: row; /* Align items in a row */
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #menuToggle {
+        display: block; /* Show the menu toggle on smaller screens */
+        order: 1;        /*Place menu toggle to the left side*/
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    aside {
+        display: flex;
+        position: fixed;
+        top: 200px;
+        left: -250px;
+        width: 250px;
+        height: 100vh;
+        background-color: #93332e;
+        color: white;
+        padding-top: 20px;
+        transition: left 0.3s ease;
+        z-index: 999;
+        font-size: 25px;
+        overflow-y: auto;
+        scrollbar-color: #933 #fff;
+    }
+
+    aside.show {
+        left: 0; /* Sidebar remains on the left, so this doesn't apply in a large screen */
+    }
+
+    aside ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    aside ul li {
+        margin: 0 1rem;
+    }
+
+    aside ul li a {
+        display: block;
+        padding: 0.5rem;
+        text-decoration: none;
+        color: white;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    aside ul li a:hover {
+        color: #cdc2ae;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Dropdown Menu */
+    aside li {
+        position: relative;
+    }
+
+    aside li ul.dropdown {
+        display: none; /* Initially hide the dropdown */
+        position: static; /* Display below the parent */
+        box-shadow: none; /* Remove box-shadow */
+        background-color: transparent;
+        padding: 0;
+        width: 100%; /* Expand to take the width */
+        scroll-behavior: smooth;
+    }
+
+    aside li:hover > ul.dropdown {
+        display: block;
+    }
+
+    aside li ul.dropdown li {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        font-size: 1rem;
+        display: block;
+    }
+
+    .dropdown a {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dropdown a:hover {
+        color: #93332e;
+        background-color: cornsilk;
+    }
+
+    .dropdown hr {
+        border: none;
+        height: 1px;
+        background-color: cornsilk;
+        margin: 0.5rem 0;
+    }
+
+    .logo-container {
+        justify-content: flex-start;
+        order: 2; /* Place logo after the menu toggle */
+    }
+
+    main {
+        margin-left: 0; /* Adjust main content for mobile */
+    }
+}
+/* Content Styles */
+.content {
+    margin-left: 10px; /* Space for the sidebar */
+    flex-grow: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Paragraph Styles */
+p {
+    margin: 0 0 10px;
+}
+
+/* Bold Text */
+b {
+    color: #b30000;
+    font-size: 1.1em;
+}
+
+/* Task Div Styles */
+.task {
+    background-color: #ffe6e6;
+    padding: 15px;
+    border-left: 4px solid #b30000;
+    margin: 10px 0;
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 25px;  /* Add padding to shift content away from the red line */
+    border-radius: 10px;
+}
+
+.task2 {
+    margin-left: 2em; /* Or any value that provides sufficient indentation */
+}
+
+/* Optional: Adjust the nested list's bullet/number appearance for clarity */
+.task2 ol {
+    list-style-type: decimal; /* Or another suitable style, e.g., lower-roman */
+}
+
+.task2 ul {
+    list-style-type: disc; /* Or another suitable style */
+    margin-left: 1.5em; /* Indent the unordered list a bit more */
+}
+
+/* Container for Simulation and Quiz buttons */
+button {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+      padding: 12px 20px;
+      background-color:#93332e;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 25px;
+      margin-bottom:5%;
+      margin-top: 2%;
+  }
+
+  button:hover {
+      background-color: #dc3545;
+  }
+.button-container {
+    display: flex; /* Arrange buttons horizontally */
+    justify-content: space-around; /* Distribute space evenly */
+    margin-top: 20px; /* Add some spacing above the buttons */
+}
+
+.button-container a {
+    display: block;  /* Make links block elements for consistent sizing */
+    width: 45%;       /* Each button takes up 45% of the container width */
+    text-decoration: none; /* Remove underlines from links */
+}
+
+.button-container button {
+    width: 100%;      /* Make buttons fill the link */
+    padding: 15px;     /* Give them some padding */
+    border: none;      /* Remove borders */
+    border-left: 4px solid #b30000;
+    background-color: #ffe6e6;
+    color: #b30000;    /* Style the text */
+    font-size: 1.1em;   /* Adjust font size */
+    cursor: pointer;     /* Change cursor on hover */
+    border-radius: 5px;  /* Rounded corners */
+    transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+    background-color: #ffcccc; /* Darker background on hover */
+}
+
+.task img {         /* Target images directly within the .task div */
+    max-width: 80%; /* Limit the image width to 80% of its container */
+    height: auto;    /* Maintain aspect ratio */
+    display: block; /* Make the image a block level element */
+    margin: 0 auto; /* Center the image Horizontally*/
+
+}
