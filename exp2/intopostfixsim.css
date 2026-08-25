@@ -1,0 +1,393 @@
+/* Reset (Optional, but recommended) */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scrollbar-color: #933 #fff;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../media/bgimg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: "Times New Roman", sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #93332e;
+    color: white;
+    position: fixed;
+    /* Changed to fixed */
+    top: 0;
+    width: 100%;
+    /* Added width */
+    z-index: 1000;
+    padding: 1rem;
+}
+
+#headerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.logo-text {
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 1rem;
+}
+
+.img img {
+    max-height: 100px;
+    width: auto;
+}
+
+.container {
+    width: 80%;
+    margin: 40px auto;
+    text-align: center;
+    color: #93332e;
+    /* Infix to Postfix in black color*/
+}
+
+.main-content-wrapper {
+    display: flex;
+    /* Arrange items side-by-side */
+    min-height: 400px;
+    /* to occupy space when there is less content */
+    margin-bottom: 20px;
+    /* Adds some spacing between wrapper and popup message */
+}
+
+.input-and-expression {
+    border: #93332e;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 35%;
+    /* Adjust width to fit your content */
+    display: flex;
+    flex-direction: column;
+    /* Stack input and expression vertically */
+    justify-content: space-between; /*Distribute extra space evenly in vertical direction*/
+    
+}
+
+.input-block {
+    /* Styles for the input block (first box) */
+    margin-bottom: 10px;
+    /* Spacing between the input and the postfix expression */
+}
+
+.final-postfix-block {
+    /* Styles for the postfix expression block (second box) */
+    border: 1px solid #93332e;
+    color: #fff;
+    background-color: #93332e;
+    padding: 20px;
+    font-size: 16px;
+    text-align: left;
+    text-align: top;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+
+.conversion-block {
+    /* Styles for the table block (third box) */
+    width: 60%;
+    border: 1px solid #933;
+    padding: 10px;
+    overflow-y: auto;
+    margin-left: 20px; /*Spacing between the first two boxes and table*/
+    height: 400px; /* Add a fixed height to enable scrolling */
+}
+
+#conversion-table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 20px;
+    width: 100%; /* Make the table take up the full width of its container */
+}
+
+#conversion-table th,
+#conversion-table td {
+    border: 1px solid #933;
+    padding: 10px;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center; /* Center the text inside the cells */
+}
+
+button {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+}
+
+input {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+}
+
+/* The button container */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    /* Align items to stretch the full width*/
+    width: 100%;
+    /* Ensure the buttons occupy all the width available */
+}
+
+button {
+    padding: 8px 16px;
+    /* Shorter button padding */
+    background-color: #dc3545;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    /* Smaller button font size */
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+    /* Button occupies the container width */
+    box-sizing: border-box;
+    /* Make the padding and border included in the button's total width. */
+    margin-bottom: 5px;
+}
+
+button:hover {
+    background-color: pink;
+}
+
+/* Ensure the INPUT box takes up full width, has same style */
+input[type="text"] {
+    padding: 8px 16px;
+    /* same padding as button*/
+    border: 2px solid #dc3545;
+    font-size: 18px;
+    /* same font size as button */
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+    /* Ensure input box is the same width as the button*/
+    box-sizing: border-box;
+    /* Include padding and border in the width */
+    margin-bottom: 5px;
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.stack-box {
+    width: 200px;
+    height: 40px;
+    border: 2px solid #dc3545;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #320509;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3px;
+    font-size: 20px;
+    position: relative;
+}
+
+.actions-box {
+    margin-top: 30px;
+    width: 100%;
+    height: 300px;
+    /* Adjust height as needed */
+    border-radius: 5px;
+    background-color: black;
+    /* operation box color */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 10px;
+    font-size: 18px;
+    white-space: pre-line;
+    color: white;
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    box-sizing: border-box;
+    scrollbar-color: #933 #fff;
+}
+
+.pushbtn {
+    padding: 6px 12px;
+    /* Smaller "Go Back" button */
+    font-size: 18px;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    width: auto;
+    /*Adjust to the content*/
+}
+
+.element-input {
+    font-size: 18px;
+    /*Input element font size to 18px*/
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.peek-box {
+    margin-top: 3px;
+    padding: 5px;
+    border: 2px solid #93332e;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 18px;
+    min-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.footer {
+    background-color: #f5f6f6;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer h1 {
+    font-size: 1.8rem;
+    color: #dc3545;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.footer h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    color: #dc3545;
+    margin: 0.5rem 0;
+}
+
+.footer h2 a {
+    text-decoration: none;
+    color: #dc3545;
+    transition: color 0.3s;
+}
+
+.footer h2 a:hover {
+    color: #93332e;
+}
+
+.footer p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    color: black;
+    margin: 0.5rem 0;
+}
+
+/* Box */
+.box {
+    margin: 2rem auto;
+    width: 80%;
+    text-align: center;
+}
+
+.box ul {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: #dc3545;
+    padding-left: 2rem;
+    text-align: left;
+    list-style-type: disc;
+}
+
+/* Image */
+.image img {
+    max-width: 50%;
+    height: auto;
+    margin: 2rem auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Department */
+.dept {
+    background-color: #93332e;
+    color: #f5f6f6;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.dept a {
+    color: #f5f6f6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.dept a:hover {
+    color: #cdc2ae;
+}
+
+/* Image */
+.img img {
+    max-width: 50%;
+    height: auto;
+    background-color: #f5f6f6;
+    padding: 0.2rem;
+    margin: 0.5rem auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* JavaScript part to use fixed Header */
+body {
+    padding-top: 65px;
+    /* Add padding to the body to account for the fixed header */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .main-content-wrapper {
+        flex-direction: column;
+        /* Stack items vertically on smaller screens */
+    }
+
+    .input-and-expression { /* corrected selector name */
+        width: 100%;
+        /* Take up full width on smaller screens */
+    }
+    .conversion-block {
+        width: 100%;
+        margin-left: 0; /* Remove left margin for full width */
+    }
+}

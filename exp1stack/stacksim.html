@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack Simulator</title>
+    <link rel="stylesheet" href="stacksim.css">
+    <script src="stacksim.js"></script>
+    <style>
+        /* Style for the message box */
+        .message-box {
+            position: fixed; /* Stay in place */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center both horizontally and vertically */
+            background-color: #f8d7da; /* Light red background */
+            color: #721c24; /* Dark red text */
+            border: 1px solid #f5c6cb; /* Border */
+            padding: 20px; /* Increased padding for larger size */
+            border-radius: 5px;
+            z-index: 1000; /* Ensure it's on top */
+            display: none; /* Hidden by default */
+            width: 300px; /* Set a fixed width for a bigger box */
+            text-align: center;
+        }
+
+        .message-box .close-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="headerContent">  <!-- Wrapper for content -->
+            <div class="logo-container"> <!-- Logo container -->
+                <div class="img">
+                    <img src="../media/somaiya.png" alt="Somaiya Logo"/>
+                </div>
+                <div class="logo-text">Virtual Lab | Data Structures | Stacks</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="content">
+            <div class="container">
+                 <div class="functions-section">
+                    <div class="function-box">
+                        <h2>Set Stack Size</h2>
+                        <div class="button-container">
+                            <input type="number" id="stack-size-input" placeholder="Enter stack size" class="element-input">
+                            <button onclick="setStackSize()">Set Size</button>
+                        </div>
+                    </div>
+                    <div class="function-box">
+                        <h2>Push Element</h2>
+                        <div class="button-container">
+                            <input type="text" id="element-input" placeholder="Element to push" class = "element-input">
+                            <button onclick="pushElement()">Push</button>
+                        </div>
+                    </div>
+                    <div class="function-box">
+                        <h2>Pop Element</h2>
+                        <button onclick="popElement()">Pop</button>
+                    </div>
+
+                    <div class="function-box">
+                        <h2>Peek Element</h2>
+                        <button onclick="peekElement()">Peek</button>
+                        <div id="peek-box" class="peek-box"></div>
+                    </div>
+                </div>
+                <div class="stack-section">
+                    <h2>Stack</h2>
+                    <div class="stack" id="stack">
+                        <!-- Stack boxes will be displayed here -->
+                        <div id="top-indicator" class="top-pointer">→</div>
+                    </div>
+                </div>
+
+                <div class="actions-section">
+                    <h2>Stack Operations</h2>
+                <div class="actions-box" id="actions-box">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="button-container go-back-reset-container">
+            <button class="resetbtn" onclick="resetStack()">Reset</button>    
+            <button  class = "pushbtn" onclick="goBack()">Go Back</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="dept">
+            <p>Department of Computer Engineering, KJSIT
+                <br>
+                Developed by : Simran Devrukhkar, Mahi Ghevariya, Aaryan Ghori
+                <br>
+                Guided by : <a href="https://kjsit.somaiya.edu.in/en/view-member/220291/">Prof. Pradnya Bhangale</a>, 
+                <a href="https://kjsit.somaiya.edu.in/en/view-member/220292/">Prof. Priyanka Deshmukh</a>
+            </p>
+        </div>
+    </footer>
+    <div id="messageBox" class="message-box">
+        <button class="close-button" onclick="closeMessageBox()">×</button>
+        <span id="messageBoxText"></span>
+    </div> <!-- Message Box -->
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postfix Evaluation Simulator</title>
+    <link rel="stylesheet" href="postfixsim.css">
+</head>
+
+<body>
+    <header>
+        <div id="headerContent">
+            <div class="logo-container">
+                <div class="img">
+                    <img src="../media/somaiya.png" alt="Somaiya Logo" />
+                </div>
+                <div class="logo-text">Virtual Lab | Data Structures | Postfix Evaluation</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Postfix Evaluation Simulator</h1>
+            <p>Note: After entering the postfix expression, click "Evaluate" once, then "Next Step" to see each step.</p>
+            <p>For entering the postfix expression, leave a gap before entering the operands and operator.<br>
+            For example, enter "5 2 + 8 3 - *" instead of "52+83-*", or it will evaluate the expression incorrectly.</p>
+            <div class="main-content-wrapper">
+                <div class="input-and-expression">
+                    <div class="input-block">
+                        <input type="text" id="postfix-input" placeholder="Enter postfix expression" />
+                        <button id="evaluateBtn">Evaluate</button>
+                        <button id="nextBtn">Next Step</button>
+                    </div>
+                    <div class="final-result-block">
+                        <h2>Final Result:
+                            <p id="final-result"></p>
+                        </h2>
+                    </div>
+                    <button id="clearBtn">Clear</button>
+                </div>
+
+                <div class="evaluation-block">
+                    <table id="evaluation-table">
+                        <thead>
+                            <tr>
+                                <th>Input</th>
+                                <th>Stack</th>
+                                <th>Postfix Evaluation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Table rows will be added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="popup-container">
+                <div id="popup">
+                    <h2 id="popup-message"></h2><br>
+                    <button id="goBackButton" class="pushbtn">Go Back</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="dept">
+            <p>Department of Computer Engineering, KJSIT
+                <br> Developed by : Simran Devrukhkar, Mahi Ghevariya, Aaryan Ghori
+                <br> Guided by : 
+                <a href="https://kjsit.somaiya.edu.in/en/view-member/220291/">Prof. Pradnya Bhangale</a>, <a href="https://kjsit.somaiya.edu.in/en/view-member/220292/">Prof. Priyanka
+                    Deshmukh</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="postfixsim.js"></script>
+</body>
+
+</html>

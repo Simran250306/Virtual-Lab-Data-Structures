@@ -1,0 +1,382 @@
+/* Reset (Optional, but recommended) */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scrollbar-color: #933 #fff;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../media/bgimg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: "Times New Roman", sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #93332e;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+#headerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.logo-text {
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 1rem;
+}
+
+.img img {
+    max-height: 100px;
+    width: auto;
+}
+
+.pushbtn {
+    padding: 8px 14px;
+    /* Smaller "Go Back" button */
+    font-size: 20px;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    width: auto;
+    /*Adjust to the content*/
+}
+
+button {
+    width: 100%;
+    /* full-width buttons */
+    font-size: 16px;
+    /* Larger text on smaller screens */
+}
+
+.container {
+    margin: 20px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+h1,
+h2,
+h3 {
+    color: #93332e;
+}
+
+input,
+button {
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+button {
+    cursor: pointer;
+    background-color: #6e2521;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background-color: #93332e;
+}
+
+.simulation-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.stack-container,
+.operation-container {
+    flex: 1;
+    margin: 0 20px;
+    font-size: 20px;
+    color: #93332e;
+}
+
+.stack {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #ddd;
+    padding: 10px;
+    border: 2px solid #aaaaaa;
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 200px;
+    transition: height 0.3s ease;
+}
+
+.stack-item {
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    background-color: #93332e;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.operations {
+    background-color: #eee;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #bb433c;
+    font-size: 20px;
+    display: flex;
+    /* Enable flexbox */
+    height: 200px; /* Fixed height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    flex-direction: column; /* Stack the operation columns vertically first */
+}
+
+.operation-column {
+    flex: 1 1 auto; /* Allow columns to grow and shrink, but start at their content size */
+    margin: 0 10px;
+    text-align: left;
+    padding: 10px;
+    /* Add padding around content in each column */
+    border-bottom: 1px solid #933; /* Add a separator line */
+    height: auto;
+}
+
+/* Remove border from the last column */
+.operation-column:last-child {
+    border-bottom: none;
+}
+
+.output-container {
+    font-size: 18px;
+    width: 250px;
+    height: 125px;
+    /* Increased height to 100px */
+    text-align: center;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    overflow: hidden;
+    /* Ensure text stays within the box */
+    white-space: nowrap;
+    /* Prevent wrapping */
+    text-overflow: ellipsis;
+    /* Add ellipsis if the text overflows */
+}
+
+.output-container p {
+    font-size: 18px;
+}
+
+/* Footer */
+.footer {
+    background-color: #f5f6f6;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer h1 {
+    font-size: 1.8rem;
+    color: #dc3545;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.footer h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    color: #dc3545;
+    margin: 0.5rem 0;
+}
+
+.footer h2 a {
+    text-decoration: none;
+    color: #dc3545;
+    transition: color 0.3s;
+}
+
+.footer h2 a:hover {
+    color: #93332e;
+}
+
+.footer p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    color: black;
+    margin: 0.5rem 0;
+}
+
+/* Box */
+.box {
+    margin: 2rem auto;
+    width: 80%;
+    text-align: center;
+}
+
+.box ul {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: #dc3545;
+    padding-left: 2rem;
+    text-align: left;
+    list-style-type: disc;
+}
+
+/* Image */
+.image img {
+    max-width: 50%;
+    height: auto;
+    margin: 2rem auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Department */
+.dept {
+    background-color: #93332e;
+    color: #f5f6f6;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.dept a {
+    color: #f5f6f6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.dept a:hover {
+    color: #cdc2ae;
+}
+
+/* Image */
+.img img {
+    max-width: 50%;
+    height: auto;
+    background-color: #f5f6f6;
+    padding: 0.2rem;
+    margin: 0.5rem auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .simulation-container {
+        flex-direction: column;
+        /* Stack the stack and operations containers vertically */
+    }
+
+    .stack-container,
+    .operation-container {
+        margin: 10px;
+        /* Reduce margin */
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+    }
+
+    .img img {
+        max-height: 75px;
+    }
+}
+
+/* Styles for input and buttons */
+.input-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Center items horizontally */
+    gap: 10px;
+    /* Add some spacing between elements */
+    margin-bottom: 10px;
+    /* Add some spacing below */
+}
+
+.input-controls input {
+    flex-grow: 1;
+    /* Allow input to grow and take available space */
+    min-width: 200px;
+    /* Prevent input from becoming too small */
+    max-width: 250px;
+}
+
+.input-controls button {
+    width: auto;
+    /* Adjust button width to content */
+    padding: 8px 12px;
+    /* Add padding to buttons */
+    font-size: 19=8px;
+    /* Adjust font size if needed */
+}
+
+/* Responsive adjustments for even smaller screens */
+@media (max-width: 500px) {
+    .input-controls {
+        flex-direction: column;
+        /* Stack input and buttons vertically */
+        align-items: stretch;
+        /* Stretch items to full width */
+    }
+
+    .input-controls input {
+        width: 100%;
+        /* Input takes full width */
+    }
+
+    .input-controls button {
+        width: 100%;
+        /* Buttons take full width */
+    }
+}

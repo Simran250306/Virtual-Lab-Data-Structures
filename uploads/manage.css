@@ -1,0 +1,231 @@
+/* Styles specifically for the PDF upload form and table on the uploads page */
+
+/*
+   Assuming this page might be in a different directory than theory.html,
+   and you want to style the main content area consistently.
+   If your theory.css already styles 'main' and a 'main > .content' wrapper,
+   you might not need these, or you can adapt them.
+*/
+main {
+    padding: 20px; /* Add some padding around the main content */
+    max-width: 900px; /* Limit content width */
+    margin: 20px auto; /* Center main content block */
+    margin-top: calc(1rem + 60px + 1rem + 20px); /* Approximate header height + spacing */
+}
+
+/* Styling for the H2 headings on this page */
+main h2 {
+    color: #933; /* Theme color from theory.css */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 30px; /* Space above headings */
+    margin-bottom: 15px; /* Space below headings */
+    font-size: 1.8em;
+    padding-bottom: 5px; /* Optional: underline effect */
+    /* border-bottom: 2px solid #e0c0c0; */ /* Optional */
+}
+main h2:first-of-type {
+    margin-top: 10px; /* Less top margin for the very first heading */
+}
+
+
+/* Styling for the Upload PDF Form */
+main form {
+    background-color: #fdf5f5; /* Light background for the form area */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    align-items: center;
+    gap: 15px; /* Space between input and button */
+    margin-bottom: 30px; /* Space below the form */
+}
+
+main form input[type="file"] {
+    flex-grow: 1; /* Allow file input to take available space */
+    padding: 10px 14px;
+    border: 1px solid #d1c0c0;
+    border-radius: 6px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    background-color: #fff;
+}
+main form input[type="file"]::file-selector-button {
+    background-color: #e9e9e9;
+    border: 1px solid #ccc;
+    padding: 9px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    color: #333;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+main form button[type="submit"] {
+    padding: 10px 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
+    background-color: #93332e; /* Theme color */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+main form button[type="submit"]:hover {
+    background-color: #7a2b27;
+}
+
+/* --- STYLES FOR THE UPLOADED PDFs TABLE --- */
+main table { /* Target tables within main for this page */
+    width: 100%;
+    border-collapse: separate; /* Use separate for border-spacing and rounded corners */
+    border-spacing: 0;
+    margin-top: 10px; /* Space from its H2 heading */
+    margin-bottom: 30px; /* Space below table */
+    border: 1px solid #d1c0c0; /* Outer border for the table */
+    border-radius: 8px; /* Rounded corners for the table itself */
+    overflow: hidden; /* Ensures border-radius clips th/td backgrounds */
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #fff; /* White background for table content area */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+}
+
+main table th,
+main table td {
+    padding: 12px 18px;
+    text-align: left;
+    border-bottom: 1px solid #e7d7d7; /* Lighter separator line */
+}
+
+/* Remove bottom border from last row's cells */
+main table tr:last-child td {
+    border-bottom: none;
+}
+
+main table th { /* Table Header cells */
+    background-color: #93332e; /* Theme color */
+    color: white;
+    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.05rem;
+    /* border-bottom-width: 2px; */ /* Already have border-bottom on all th/td */
+    /* border-bottom-color: #7a2b27; */
+}
+/* Apply top-left and top-right radius to the first and last header cells */
+main table thead tr:first-child th:first-child {
+    border-top-left-radius: 7px; /* Slightly less than table's radius */
+}
+main table thead tr:first-child th:last-child {
+    border-top-right-radius: 7px;
+}
+
+/* Apply bottom-left and bottom-right radius to the first and last cells of the last data row */
+main table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 7px;
+}
+main table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 7px;
+}
+
+
+main table tr:nth-child(even) td { /* Zebra striping for data rows */
+    background-color: #fef7f7; /* Very light red for even rows */
+}
+main table tr:hover td { /* Hover effect for data rows */
+    background-color: #fcebeb; /* Slightly darker hover */
+    color: #000;
+}
+main table td {
+     font-size: 0.95rem;
+}
+
+main table a {
+    color: #8c1c13; /* Theme link color */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+main table a:hover {
+    text-decoration: underline;
+    color: #b30000;
+}
+
+/* Specific styling for delete link to look like a small button */
+main table .delete-link { /* Add this class to your delete <a> tag */
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #d9534f; /* Bootstrap's btn-danger-like red */
+    color: white !important;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: normal;
+    transition: background-color 0.2s ease;
+}
+main table .delete-link:hover {
+    background-color: #c9302c; /* Darker red on hover */
+    text-decoration: none;
+}
+
+/* --- Styling for inline PHP messages --- */
+/* You echo these directly in PHP, so they'll be inside <main> */
+main > p[style*="color:green;"] { /* Targets the success message */
+    background-color: #e9f5e9;
+    color: #1e5521 !important; /* Override inline style for better contrast */
+    padding: 12px 15px;
+    border-left: 5px solid #4CAF50;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+main > p[style*="color:red;"] { /* Targets the error/delete messages */
+    background-color: #fdecea;
+    color: #a52828 !important; /* Override inline style */
+    padding: 12px 15px;
+    border-left: 5px solid #f44336;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Responsive adjustments for the table if needed */
+@media (max-width: 700px) {
+    main form {
+        flex-direction: column; /* Stack form elements */
+        align-items: stretch; /* Make them full width */
+    }
+    main form input[type="file"],
+    main form button[type="submit"] {
+        width: 100%;
+    }
+    main form button[type="submit"] {
+        margin-top: 10px; /* Add space if button is below input */
+    }
+
+    /* For very small screens, make the table scrollable horizontally */
+    .table-responsive-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        border: 1px solid #d1c0c0; /* Optional: visual cue for scrollable area */
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    /*
+       To use the responsive wrapper, you would modify your PHP output slightly:
+       echo '<div class="table-responsive-wrapper">';
+       echo '<table border="1" cellpadding="10">'; // Your existing table start
+       // ... table content ...
+       echo '</table>';
+       echo '</div>';
+    */
+    /* If not using the wrapper, you might reduce padding further */
+    main table th,
+    main table td {
+        padding: 8px 10px;
+    }
+    main table {
+        font-size: 0.9rem;
+    }
+}

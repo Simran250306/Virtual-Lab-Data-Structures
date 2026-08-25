@@ -1,0 +1,441 @@
+/* Reset (Optional, but recommended) */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* Standardized scrollbar color */
+    scrollbar-color: #93332e #fff;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../media/bgimg.png');
+    background-size: cover;
+    /* Default text color removed - set per component */
+    /* Base font stack */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    color: #333; /* Default text color for content */
+}
+
+/* Ensure text directly on body (if any) is visible against background */
+body > *:not(.container):not(header):not(footer):not(.dept) {
+    /* Example: Set color if needed for elements directly under body */
+     color: white; 
+}
+
+
+/* --- Header --- */
+header {
+    background-color: #93332e;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+#headerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1; /* Allow logo container to take available space */
+}
+
+/* Style for the image specifically within the header's logo container */
+.logo-container .img img {
+    max-height: 100px; /* Control logo height */
+    width: auto;
+    display: block; /* Prevents potential inline spacing issues */
+}
+
+.img img {
+    max-width: 50%;
+    height: auto;
+    background-color: #f5f6f6;
+    padding: 0.2rem;
+    margin: 0.5rem auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-text {
+    font-size: 2rem;
+    /* text-align: center; Removed as flex handles alignment */
+    margin-left: 1rem;
+}
+
+/* --- Main Content Container --- */
+.container {
+    width: 70%; /* Default width */
+    max-width: 800px; /* Max width for larger screens */
+    margin: 50px auto; /* Centering */
+    padding: 30px 40px; /* Inner spacing */
+    background-color: #fff; /* White background for content */
+    color: #333; /* Default text color inside container */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack children (like forms) vertically */
+    flex-grow: 1; /* Allow container to fill space between header/footer */
+}
+
+/* --- General Form Element Styles --- */
+.container h2 { /* Target h2 specifically within the container */
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #93332e; /* Theme color */
+    font-size: 1.8rem; /* Adjust heading size */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit; /* Inherit from body */
+    font-size: 1rem;
+    width: 100%; /* Default to full width within parent */
+}
+
+/* Base button style - REMOVED global width: 100% */
+button {
+    padding: 12px 25px;
+    margin-bottom: 18px; /* Consistent spacing */
+    background-color: #93332e;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    font-family: inherit; /* Ensure buttons use body font */
+}
+
+button:hover {
+    background-color: #7a2a25; /* Darker shade on hover */
+}
+
+/* --- Specific Styles for User Details Form (#userDetailsForm) --- */
+#userDetailsForm {
+    display: flex; /* Use flex here too if needed, or rely on .container */
+    flex-direction: column; /* Stack elements */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text within labels/buttons */
+}
+
+/* #userDetailsForm label { */
+    /* Text already centered by container's text-align: center */
+/* } */
+
+#userDetailsForm input,
+#userDetailsForm select {
+    max-width: 400px; /* Limit width */
+    width: 100%; /* Responsive width up to max-width */
+    text-align: left; /* Keep input text left-aligned */
+}
+
+#userDetailsForm button {
+    width: auto; /* Allow button to size naturally */
+    min-width: 150px; /* Minimum clickable size */
+    margin-top: 10px; /* Add space above button */
+}
+
+/* --- Specific Styles for Feedback Form (#feedbackFormContainer) --- */
+#feedbackFormContainer {
+    display: flex; /* Use flex here too if needed, or rely on .container */
+    flex-direction: column; /* Stack elements */
+    align-items: flex-start; /* Align items (labels, inputs) to the left */
+    text-align: left; /* Align text within labels to the left */
+    margin-top: 40px; /* Space between user details and feedback form */
+}
+
+/* Center the H2 heading specifically within the feedback form */
+#feedbackFormContainer h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#feedbackFormContainer button {
+     width: 100%; /* Make submit button full width */
+     margin-top: 15px; /* Space above button */
+}
+
+/* --- Styles for VERTICAL Radio Button Rating Scale --- */
+.feedback-question {
+    margin-bottom: 25px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+.feedback-question:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.question-text {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+.radio-options-vertical {
+    margin-left: 10px; /* Indent options */
+}
+
+.radio-options-vertical label {
+    display: flex;       /* Use flex for alignment */
+    align-items: center; /* Vertically center radio and text */
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: normal; /* Options not bold */
+    color: #555;
+}
+
+.radio-options-vertical label:last-child {
+     margin-bottom: 0;
+}
+
+.radio-options-vertical label input[type="radio"] {
+     margin-right: 10px; /* Space BETWEEN radio and text */
+     width: auto;        /* Override general input width */
+     height: auto;
+     margin-bottom: 0;   /* Override general input margin */
+     padding: 0;         /* Remove default padding */
+     border: default;    /* Reset border */
+     cursor: pointer;
+     flex-shrink: 0;     /* Prevent radio from shrinking */
+     accent-color: #93332e; /* Style the radio button color */
+     /* vertical-align: middle; /* Less critical with flex align-items */
+}
+
+/* --- General Purpose Button (e.g., Go Back) --- */
+.pushbtn {
+    padding: 6px 12px; /* Smaller padding */
+    font-size: 16px;   /* Adjusted font size */
+    margin: 20px auto; /* More vertical margin, centered */
+    display: block;    /* Ensure it's block for auto margins */
+    width: auto;       /* Adjust to content */
+}
+
+/* --- Other Sections --- */
+
+/* Box (Generic content box, if needed outside .container) */
+.box {
+    margin: 2rem auto;
+    width: 80%;
+    max-width: 900px; /* Optional max-width */
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.1); /* Example background if needed */
+    border-radius: 8px;
+    color: white; /* Example text color if on dark background */
+}
+
+.box ul {
+    margin: 1rem 0 1rem 2rem; /* Added margin-left instead of padding */
+    font-size: 1.1rem; /* Slightly smaller */
+    color: #ffdddd; /* Lighter red/pink for contrast */
+    text-align: left;
+    list-style-type: disc;
+}
+
+/* Image (Generic image style - use class="content-image" in HTML) */
+.content-image img {
+    max-width: 50%;
+    height: auto;
+    margin: 2rem auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #f5f6f6;
+    color: #333; /* Darker text for readability on light background */
+    margin-top: auto; /* Push footer to bottom */
+    padding: 2rem;
+    text-align: center;
+    width: 100%; /* Ensure footer spans width */
+}
+
+/* Removed specific footer h1 styling, use h2 or p */
+
+.footer h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    color: #dc3545; /* Keeping distinct footer red */
+    margin: 0.5rem 0;
+}
+
+.footer h2 a {
+    text-decoration: none;
+    color: inherit; /* Inherit color from h2 */
+    transition: color 0.3s;
+}
+
+.footer h2 a:hover {
+    color: #93332e; /* Theme color on hover */
+}
+
+.footer p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    color: black;
+    margin: 0.5rem 0;
+}
+
+.footer .footer-image-container img { 
+    max-width: 200px; /* Example size */
+    width: 30%;
+    height: auto;
+    margin: 1rem auto; /* Centering */
+    display: block;
+}
+
+
+/* Department Bar */
+.dept {
+    background-color: #93332e;
+    color: #f5f6f6;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.dept a {
+    color: #f5f6f6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.dept a:hover {
+    color: #cdc2ae;
+}
+
+
+/* --- Error Highlighting --- */
+.error-highlight {
+    border: 1px solid red !important;
+    background-color: #ffebeb;
+}
+.feedback-question.error-highlight {
+    border-left: 3px solid red;
+    padding-left: 10px;
+    /* Ensure bottom border also turns red if present */
+    border-bottom-color: red;
+    background-color: #fff0f0; /* Slight background tint for the block */
+}
+
+label.error-highlight {
+    color: red;
+}
+
+
+/* --- Responsive Styles --- */
+
+/* Larger tablets / Small laptops */
+@media (max-width: 992px) {
+    .container {
+        width: 85%;
+        padding: 25px 30px;
+    }
+    /* Adjust header/nav text if needed */
+     .logo-text { font-size: 1.8rem; }
+     nav ul li a { font-size: 1rem; } 
+}
+
+/* Tablets / Small devices */
+@media (max-width: 768px) {
+
+   .container {
+       width: 95%;
+       padding: 20px 15px;
+       margin-top: 20px;
+       margin-bottom: 20px;
+   }
+   .container h2 { font-size: 1.6rem; }
+
+   #userDetailsForm input,
+   #userDetailsForm select {
+       max-width: 90%; /* Allow inputs to use more width */
+   }
+
+   .footer {
+       padding: 20px 15px;
+       text-align: center; /* Ensure text is centered */
+   }
+    /* Example: Center footer image */
+   .footer .footer-image-container img {
+        float: none;
+        display: block;
+        margin: 20px auto;
+        width: 50%;
+        max-width: 250px;
+   }
+   /* Example: Ensure footer text blocks are centered */
+    .footer .cu, .footer .Add h2 {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+   }
+
+   .dept { font-size: 0.9rem; padding: 10px; }
+
+   .radio-options-vertical { margin-left: 5px; } /* Less indent */
+}
+
+/* Small mobiles */
+@media (max-width: 480px) {
+    .logo-text { font-size: 1.5rem; }
+
+    .container h2 { font-size: 1.4rem; }
+    .container { padding: 15px 10px; }
+
+    label { font-size: 0.95rem; }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    button {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    #userDetailsForm button { min-width: 120px; } /* Smaller min-width */
+
+    .footer h2 { font-size: 1.1rem; }
+    .footer p { font-size: 0.9rem; }
+
+    .radio-options-vertical label { font-size: 0.9em; }
+    .radio-options-vertical label input[type="radio"] { margin-right: 8px; }
+}

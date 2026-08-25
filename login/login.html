@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DS Virtual Lab Login</title>
+  <link rel="stylesheet" href="login.css" />
+  <style>
+    .role-toggle {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+    .role-toggle button {
+      background-color: rgba(255, 255, 255, 0.4);
+      border: 1px solid #933;
+      color: #933;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .role-toggle button.active {
+      background-color: #933;
+      color: white;
+    }
+    .role-form {
+      display: none;
+    }
+    .role-form.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>DS Virtual Lab Login</h1>
+
+    <div class="role-toggle">
+      <button id="studentBtn" class="active">Student</button>
+      <button id="facultyBtn">Faculty</button>
+    </div>
+
+    <form id="studentForm" class="role-form active" action="/login/student/login.php" method="post">
+      <div class="input-group">
+        <label for="student-email">Email</label>
+        <input type="email" id="student-email" name="email" placeholder="Student email" required />
+      </div>
+      <div class="input-group">
+        <label for="student-password">Password</label>
+        <input type="password" id="student-password" name="password" placeholder="Student password" required />
+      </div>
+      <button type="submit" class="login-button">Login as Student</button>
+      <div class="google-button">
+        <a href="/login/google_login.php?role=student">Continue with Google</a>
+      </div>
+    </form>
+
+    <form id="facultyForm" class="role-form" action="/login/faculty/login.php" method="post">
+      <div class="input-group">
+        <label for="faculty-email">Email</label>
+        <input type="email" id="faculty-email" name="email" placeholder="Faculty email" required />
+      </div>
+      <div class="input-group">
+        <label for="faculty-password">Password</label>
+        <input type="password" id="faculty-password" name="password" placeholder="Faculty password" required />
+      </div>
+      <button type="submit" class="login-button">Login as Faculty</button>
+      <div class="google-button">
+        <a href="/login/google_login.php?role=faculty">Continue with Google</a>
+      </div>
+    </form>
+
+    <div class="extra-links">
+      <a href="forgot_password.html">Forgot Password?</a>
+      <span>|</span>
+      <a href="signup.html?role=faculty">Sign up</a>
+    </div>
+  </div>
+
+  <script>
+    const studentBtn = document.getElementById('studentBtn');
+    const facultyBtn = document.getElementById('facultyBtn');
+    const studentForm = document.getElementById('studentForm');
+    const facultyForm = document.getElementById('facultyForm');
+
+    studentBtn.addEventListener('click', () => {
+      studentBtn.classList.add('active');
+      facultyBtn.classList.remove('active');
+      studentForm.classList.add('active');
+      facultyForm.classList.remove('active');
+    });
+
+    facultyBtn.addEventListener('click', () => {
+      facultyBtn.classList.add('active');
+      studentBtn.classList.remove('active');
+      facultyForm.classList.add('active');
+      studentForm.classList.remove('active');
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    if (urlParams.get('signup') === 'success') {
+      alert('Signup successful! Please log in.');
+    }
+
+    if (urlParams.get('error') === 'unauthorized') {
+      alert("Access denied! You don't have permission to access that page. Please log in with the correct account type.");
+    }
+
+    if (urlParams.get('error') === 'invalid_credentials') {
+      alert('Invalid email or password.');
+    }
+    if (urlParams.get('error') === 'email_not_verified') {
+      alert('Please verify your email before logging in. Check your inbox for the verification link.');
+    }
+
+    if (urlParams.get('verify') === 'check_email') {
+      alert('Signup successful. Please check your email and verify your account before login.');
+    }
+
+    if (urlParams.get('verify') === 'mail_failed') {
+      alert('Signup successful, but verification email could not be sent on this server. Check error logs for the verification link.');
+    }
+
+    if (urlParams.get('verify') === 'success') {
+      alert('Email verified successfully. You can now log in.');
+    }
+
+    if (urlParams.get('error') === 'verify_failed') {
+      alert('Verification link is invalid or expired. Please sign up again or contact admin.');
+    }
+
+
+    
+    if (urlParams.get('reset') === 'requested') {
+      alert('If your details are correct, a password reset link has been sent to your email.');
+    }
+
+    if (urlParams.get('reset') === 'mail_failed') {
+      alert('Reset verified, but email could not be sent on this server. Check server logs for the reset link.');
+    }
+
+    if (urlParams.get('reset') === 'success') {
+      alert('Password reset successful. Please log in with your new password.');
+    }
+
+    if (urlParams.get('error') === 'too_many_attempts') {
+      alert('Too many reset attempts. Please wait 15 minutes and try again.');
+    }
+
+    if (urlParams.get('error') === 'reset_failed') {
+      alert('Reset verification failed. Please check your details and try again.');
+    }
+
+    if (urlParams.get('error') === 'google_login_failed') {
+      alert('Google login could not be completed. Please try again or sign in with email and password.');
+    }
+
+    if (urlParams.get('error') === 'google_email_unverified') {
+      alert('Google did not confirm your email address. Please use a verified Google account.');
+    }
+
+    if (urlParams.get('error') === 'google_account_not_linked') {
+      alert('No matching account was found for that Google email. Please sign up with the same email first.');
+    }
+  </script>
+</body>
+</html>
+
+

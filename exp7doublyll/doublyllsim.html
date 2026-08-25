@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doubly Linked List Simulator</title>
+    <link rel="stylesheet" href="doublyllsim.css">
+</head>
+<body>
+    <header>
+        <div id="headerContent">
+            <div class="logo-container">
+                <div class="img">
+                    <img src="../media/somaiya.png" alt="Somaiya Logo"/>
+                </div>
+                <div class="logo-text">Virtual Lab | Data Structures | Doubly Linked List</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Doubly Linked List Simulator</h1>
+
+            <div class="main-content">
+                <div class="controls-area">
+                    <div class="operation-container">
+                        <div class="operation-title">Insert Operations</div>
+                        <div class="operation-content">
+                            <div class="operation-row">
+                                <label for="insertNodeValue">Value:</label>
+                                <input type="number" id="insertNodeValue" placeholder="Value" />
+                            </div>
+                            <button onclick="insertAtBeginning()">Insert at Beginning</button>
+                            <button onclick="insertAtEnd()">Insert at End</button>
+                            <div class="operation-row">
+                                <label for="insertPosition">Index:</label>
+                                <input type="number" id="insertPosition" placeholder="Index" />
+                            </div>
+                            <button onclick="insertAfterIndex()">Insert After Index</button>
+                        </div>
+                    </div>
+
+                    <div class="operation-container">
+                        <div class="operation-title">Delete Operations</div>
+                        <div class="operation-content">
+                            <button onclick="deleteAtBeginning()">Delete at Beginning</button>
+                            <button onclick="deleteAtEnd()">Delete at End</button>
+                            <div class="operation-row" style="margin-top: 15px;">
+                                <label for="deletePosition">Index:</label>
+                                <input type="number" id="deletePosition" placeholder="Index" />
+                            </div>
+                            <button onclick="deleteAfterIndex()">Delete After Index</button>
+                        </div>
+                    </div>
+
+                    <div class="operation-log" id="operationLog">
+                        <div class="log-title">Operation Log</div>
+                        <div class="log-entries"></div>
+                    </div>
+                </div>
+
+                <div class="list-display">
+                    <div class="diagram-box">
+                        <div class="diagram" id="linkedListDiagram"></div>
+                    </div>
+                    <div class="diagram-utility-buttons">
+                        <button onclick="createSampleList()" class="utility-btn sample-btn">Sample List</button>
+                        <button onclick="clearList()" class="utility-btn clear-btn">Clear List</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="pushbtn" onclick="goBack()">Go Back</button>
+    </main>
+
+    <footer>
+        <div class="dept">
+            <p>Department of Computer Engineering, KJSIT
+                <br>
+                Developed by : Simran Devrukhkar, Mahi Ghevariya, Aaryan Ghori
+                <br>
+                Guided by : <a href="https://kjsit.somaiya.edu.in/en/view-member/220291/">Prof. Pradnya Bhangale</a>, <a href="https://kjsit.somaiya.edu.in/en/view-member/220292/">Prof. Priyanka Deshmukh</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="doublyllsim.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postfix Evaluation</title>
+    <link rel="stylesheet" href="../theory.css">
+    <script>
+        window.onscroll = function() {myFunction()};
+    
+        var header = document.getElementById("fixedNav");
+        var sticky = header.offsetTop;
+    
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+        </script>
+</head>
+
+<body>
+    <header>
+        <div id="headerContent">  <!-- Wrapper for content -->
+            <div id="menuToggle">&#9776;</div>  <!-- Menu Toggle Button -->
+            <div class="logo-container"> <!-- Logo container -->
+                <div class="img">
+                    <img src="../media/somaiya.png" alt="Somaiya Logo"/>
+                </div>
+                <div class="logo-text">Virtual Lab | Data Structures | Postfix Evaluation</div>
+            </div>
+        </div>
+    </header>
+
+    <aside id="sidebar">
+        
+        <ul>
+            <li><a href="../home/home.php">Home</a></li>
+            <li><a href="../pdf/DATA STRUCTURES E-BOOK.pdf" target="_blank">E-Book</a></li>
+            <li><a href="../theory/theory.php">Theory</a></li>
+            <li>
+                <a href="#">Labs</a>
+                <ul class="dropdown">
+                    <li><a href="../exp1stack/stack.html">Experiment 1: Stacks</a></li>
+                    <hr/>
+                    <li><a href="../exp2/intopostfix.html">Experiment 2: Infix to postfix</a></li>
+                    <hr/>
+                    <li><a href="../exp3/exp3.html">Experiment 3: Applications of stack</a></li>
+                    <hr/>
+                    <li><a href="../exp3postfixeval/postfix.html">Postfix Evaluation</a></li>
+                    <hr/>
+                    <li><a href="../exp3zparenthesis/parenthesis.html">Parenthesis Checker</a></li>
+                    <hr/>
+                    <li><a href="../exp4linearqueue/lqueue.html">Experiment 4: Linear Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp5circularqueue/cqueue.html">Experiment 5 : Circular Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp5dequeue/dequeue.html">Double Ended Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp6singlyll/singlyll.html">Experiment 6: Singly Linked List</a></li>
+                    <hr/>
+                    <li><a href="../exp7doublyll/doublyll.html">Experiment 7: Doubly Linked List</a></li>
+                    <hr/>
+                    <li><a href="../exp8bst/bst.html">Experiment 8: Binary Search Tree</a></li>
+                    <hr/>
+                    <li><a href="../exp8zavltree/avltree.html">AVL Tree</a></li>
+                    <hr/>
+                    <li><a href="../exp9graph/graph.html">Graph </a></li>
+                </ul>
+            </li>
+            <li><a href="../about/about.php">About Us</a></li>
+            <li><a href="../feedback/feedbackpg.php">Feedback</a></li>
+            <li><a href="../login/logout.php">Logout</a></li></ul>
+        <div id="labContentContainer"></div>
+    </aside>
+
+    <main>
+        <div class="content">
+            <!-- Fixed Navigation (Added here) -->
+        <nav id="fixedNav">
+            <a href="#aimSection">Aim</a>
+            <a href="#theorySection">Theory</a>
+            <a href="#algorithmSection">Algorithm</a>
+            <a href="../exp3postfixeval/postfixsim.html">Simulation</a>
+            <a href="../exp3postfixeval/postfixquiz.html">Quiz</a>
+            <a href="../feedback/4postfixevalfb.php">Feedback</a>
+        </nav>
+
+            <div id="aimSection">
+                <p><b>Aim:</b>
+                    <div class='task'>Evaluate postfix expressions using a stack.</div></p>
+            </div>
+
+             <div id="theorySection">
+                <p><b>Theory:</b>
+                    <div class='task'>
+                        Postfix evaluation is a method of evaluating expressions where operators come after their operands.
+                        In a postfix expression like "ab+", the operands 'a' and 'b' are followed by the operator '+'.
+                        To evaluate a postfix expression, we use a stack data structure. 
+                    </div>
+                </p>
+            </div>
+
+            <div id="algorithmSection">
+                <p>
+                    <b>Algorithm: </b>
+                    <div class='task'>
+                        <ol type="a">
+                            <li>Initialize an empty stack.</li>
+                            <li>Scan the postfix expression from left to right.</li>
+                            <li>If the scanned character is an operand, push it onto the stack.</li>
+                            <li>If the scanned character is an operator, do the following: </li>
+                            
+                            <div class='task2'>
+                                <ol>
+                                    <li>Pop two operands from the stack. These are the two most recent operands that were pushed onto the stack.</li>
+                                    <li>Perform the operation using the two operands popped from the stack: </li>
+                                    <div class="'task2">
+                                        <ul type="bullet">
+                                            <li> The first operand popped will be the right operand. </li>
+                                            <li> The second operand popped will be the left operand. </li>
+                                            <li> Apply the operator to the two operands (e.g., `+`, `-`, `*`, `/`).</li>
+                                        </ul>
+                                    </div>
+                                    <li>Push the result of the operation back onto the stack.</li>
+                                </ol>
+                            </div>
+                            <li>Repeat steps 3 and 4 until all characters in the postfix expression are processed.</li>
+                            <li>At the end of the expression, there will be exactly one value left in the stack, which is the result of evaluating the postfix expression.</li>
+                            <li>Print the value remaining in the stack. This will be the result of the postfix evaluation.</li>
+                          </ol>
+                    </div>
+            </div>
+
+                <p><b>Simulation:</b>
+                    <div class='task button-task'>
+                      <a href="../exp3postfixeval/postfixsim.html"><button>Simulation of Postfix Evaluation</button></a>
+                </div>
+
+                <p><b>Quiz:</b>
+                    <div class='task button-task'>
+                      <a href="../exp3postfixeval/postfixquiz.html"><button>Attempt Quiz</button></a>
+                  </div>
+
+                  <p><b>Feedback:</b>
+                    <div class='task button-task'>
+                      <a href="../feedback/4postfixevalfb.php"><button>Feedback</button></a>
+                  </div>
+
+
+        </div>
+        <button id="topBtn" onclick="scrollToTop()">↑</button>
+    </main>
+
+    <footer>
+        <div class="dept">
+            <p>Department of Computer Engineering, KJSIT
+                <br>
+                Developed by : Simran Devrukhkar, Mahi Ghevariya, Aaryan Ghori
+                <br>
+                Guided by : <a href="https://kjsit.somaiya.edu.in/en/view-member/220291/">Prof. Pradnya Bhangale</a>, <a href="https://kjsit.somaiya.edu.in/en/view-member/220292/">Prof. Priyanka Deshmukh</a>
+            </p>
+        </div>
+    </footer>
+
+     <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const sidebar = document.getElementById("sidebar");
+
+        menuToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("show");
+        });
+
+        document.addEventListener("click", (event) => {
+            const isClickInside = sidebar.contains(event.target) || menuToggle.contains(event.target);
+            if (!isClickInside) {
+                sidebar.classList.remove("show");
+            }
+        });
+
+        window.onscroll = function () {
+            showScrollButton();
+        };
+        
+        function showScrollButton() {
+            let button = document.getElementById("topBtn");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                button.style.display = "block"; // Show when scrolled down
+            } else {
+                button.style.display = "none"; // Hide when at the top
+            }
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+</body>
+</html>
+
+

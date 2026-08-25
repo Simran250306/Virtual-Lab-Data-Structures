@@ -1,0 +1,538 @@
+/* Reset (Optional, but recommended) */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scrollbar-color: #933 #fff;
+}
+
+body {
+    background-image: url('../media/bgimg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: black;
+    font-family: "Times New Roman", sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #93332e;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+#headerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#menuToggle {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.logo-text {
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 1rem;
+}
+
+.img img {
+    max-height: 100px;
+    width: auto;
+}
+
+/* Sidebar Styles */
+aside {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    background-color: #93332e;
+    color: white;
+    min-height: 100vh;
+    max-height: 100vh;
+    padding-top: 20px;
+    transition: left 0.3s ease;
+    z-index: 999;
+    top: 100px;
+    font-size: 25px;
+    overflow-y: auto;
+    scrollbar-color: #933 #fff;
+}
+
+aside.show {
+    left: 0; /* Sidebar remains on the left, so this doesn't apply in a large screen */
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside ul li {
+    margin: 0 1rem;
+}
+
+aside ul li a {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+aside ul li a:hover {
+    color: #cdc2ae;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dropdown Menu */
+aside li {
+    position: relative;
+}
+
+aside li ul.dropdown {
+    display: none; /* Initially hide the dropdown */
+    position: static; /* Display below the parent */
+    box-shadow: none; /* Remove box-shadow */
+    background-color: transparent;
+    padding: 0;
+    width: 100%; /* Expand to take the width */
+    scroll-behavior: smooth;
+}
+
+aside li:hover > ul.dropdown {
+    display: block;
+}
+
+aside li ul.dropdown li {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1rem;
+    display: block;
+}
+
+.dropdown a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown a:hover {
+    color: #93332e;
+    background-color: cornsilk;
+}
+
+.dropdown hr {
+    border: none;
+    height: 1px;
+    background-color: cornsilk;
+    margin: 0.5rem 0;
+}
+
+main {
+    margin-left: 125px;  /* Adjusted to accommodate the sidebar */
+    padding: 20px; /* Add padding for content spacing */
+    margin-right: 125px;
+}
+
+.content{
+    align-items: justify;
+}
+
+.content h2{
+    color: #933;
+}
+
+.content p{
+    margin: 0 0 10px;
+    font-size: 18px;
+    text-align: justify;
+}
+
+.content-container{
+    background-color: #ffe6e6;
+    padding: 15px;
+    border-left: 4px solid #b30000;
+    margin: 10px 0;
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 25px;  /* Add padding to shift content away from the red line */
+    border-radius: 10px;
+}
+
+/* Container for all cards */
+.cards-container {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping of cards */
+  margin-top: 30px;
+}
+
+/* Style for individual card */
+.card {
+  width: 280px; /* Smaller width */
+  height: 380px; /* Smaller height */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  color: black;
+  margin-right: 10px;
+}
+
+/* Hover effect on the card */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile photo */
+.profile-photo {
+  width: 100px; /* Smaller size */
+  height: 100px; /* Smaller size */
+  border-radius: 50%; /* Circular shape */
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+/* Profile name */
+.profile-name {
+  font-size: 20px; /* Slightly smaller font size */
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Styling for the link itself inside .profile-name */
+.profile-name a {
+    /* --- Font and Color --- */
+    font-size: inherit; /* Inherit size from the parent .profile-name for consistency */
+    font-weight: inherit; /* Inherit weight from the parent .profile-name */
+    color: black;         /* Sets the text color to black */
+    text-decoration: none; /* Removes the default underline */
+  
+    margin-bottom: 15px;
+                           
+    display: inline-block; /* Allows applying vertical padding/margin if needed later, and treats it more like a block */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition for hover effects */
+  }
+  
+  /* Styling for the link when hovered over */
+  .profile-name a:hover {
+    color: #555; 
+    text-decoration: underline; /* Add underline on hover as a common usability cue */
+     font-size: inherit; 
+     font-weight: inherit; 
+  }
+ 
+/* Icons container inside the card */
+.icons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease;
+}
+
+/* Show icons on hover */
+.card:hover .icons-container {
+  opacity: 1;
+}
+
+/* Individual icon styles */
+/* --- Profile Name Link Styles (Keep these as they were, maybe adjust margin) --- */
+.profile-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px; /* Correct place for margin below the name */
+}
+
+.profile-name a {
+    font-size: inherit; /* Now correctly inherits 20px */
+    font-weight: inherit; /* Now correctly inherits bold */
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    /* margin-bottom: 15px; */ /* Remove margin from here */
+}
+
+.profile-name a:hover {
+    color: #555; /* Use the hover color you intended */
+    text-decoration: underline;
+}
+
+/* --- Icon Styles (Now correctly scoped) --- */
+.icons-container a { /* Target only links INSIDE the icons-container */
+  font-size: 30px; /* Keep icon size */
+  transition: color 0.3s ease;
+  text-decoration: none;
+  /* Define a default color for icons if needed, e.g., color: #555; */
+}
+
+.icons-container a:hover {
+  color: #dc3545; /* Keep desired icon hover color */
+}
+
+/* Specific icon colors (scoped within icons-container for clarity) */
+.icons-container .linkedin-icon {
+    color: rgb(6, 20, 132);
+}
+.icons-container .github-icon {
+    color: rgb(103, 7, 133);
+}
+.icons-container .email-icon {
+    color: black;
+}
+
+/* Footer */
+.footer {
+    background-color: #f5f6f6;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer h1 {
+    font-size: 1.8rem;
+    color: #dc3545;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.footer h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    color: #dc3545;
+    margin: 0.5rem 0;
+}
+
+.footer h2 a {
+    text-decoration: none;
+    color: #dc3545;
+    transition: color 0.3s;
+}
+
+.footer h2 a:hover {
+    color: #93332e;
+}
+
+.footer p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    color: black;
+    margin: 0.5rem 0;
+}
+
+/* Box */
+.box {
+    margin: 2rem auto;
+    width: 80%;
+    text-align: center;
+}
+
+.box ul {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: #dc3545;
+    padding-left: 2rem;
+    text-align: left;
+    list-style-type: disc;
+}
+
+/* Image */
+.image img {
+    max-width: 50%;
+    height: auto;
+    margin: 2rem auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Department */
+.dept {
+    background-color: #93332e;
+    color: #f5f6f6;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.dept a {
+    color: #f5f6f6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.dept a:hover {
+    color: #cdc2ae;
+}
+
+/* Image */
+.img img {
+    max-width: 50%;
+    height: auto;
+    background-color: #f5f6f6;
+    padding: 0.2rem;
+    margin: 0.5rem auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+
+    #headerContent {
+        display: flex;
+        flex-direction: row; /* Align items in a row */
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #menuToggle {
+        display: block; /* Show the menu toggle on smaller screens */
+        order: 1;        /*Place menu toggle to the left side*/
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    aside {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        min-height: 100vh;
+        max-height: 100vh;
+        background-color: #93332e;
+        color: white;
+        padding-top: 20px;
+        transition: left 0.3s ease;
+        z-index: 999;
+        top: 100px;
+        font-size: 25px;
+        overflow-y: auto;
+        scrollbar-color: #933 #fff;
+    }
+    
+    aside.show {
+        left: 0; /* Sidebar remains on the left, so this doesn't apply in a large screen */
+    }
+    
+    aside ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    aside ul li {
+        margin: 0 1rem;
+    }
+    
+    aside ul li a {
+        display: block;
+        padding: 0.5rem;
+        text-decoration: none;
+        color: white;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    
+    aside ul li a:hover {
+        color: #cdc2ae;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Dropdown Menu */
+    aside li {
+        position: relative;
+    }
+    
+    aside li ul.dropdown {
+        display: none; /* Initially hide the dropdown */
+        position: static; /* Display below the parent */
+        box-shadow: none; /* Remove box-shadow */
+        background-color: transparent;
+        padding: 0;
+        width: 100%; /* Expand to take the width */
+        scroll-behavior: smooth;
+    }
+    
+    aside li:hover > ul.dropdown {
+        display: block;
+    }
+    
+    aside li ul.dropdown li {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        font-size: 1rem;
+        display: block;
+    }
+    
+    .dropdown a {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .dropdown a:hover {
+        color: #93332e;
+        background-color: cornsilk;
+    }
+    
+    .dropdown hr {
+        border: none;
+        height: 1px;
+        background-color: cornsilk;
+        margin: 0.5rem 0;
+    }
+    
+    .logo-container {
+        justify-content: flex-start;
+        order: 2; /* Place logo after the menu toggle */
+    }
+
+    main {
+        margin-left: 0; /* Adjust main content for mobile */
+    }
+}

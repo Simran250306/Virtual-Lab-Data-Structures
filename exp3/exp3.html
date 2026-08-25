@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications of stack</title>
+    <link rel="stylesheet" href="../theory.css">
+    <script>
+        window.onscroll = function() {myFunction()};
+    
+        var header = document.getElementById("fixedNav");
+        var sticky = header.offsetTop;
+    
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+        </script>
+</head>
+
+<body>
+    <header>
+        <div id="headerContent">  <!-- Wrapper for content -->
+            <div id="menuToggle">&#9776;</div>  <!-- Menu Toggle Button -->
+            <div class="logo-container"> <!-- Logo container -->
+                <div class="img">
+                    <img src="../media/somaiya.png" alt="Somaiya Logo"/>
+                </div>
+                <div class="logo-text">Virtual Lab | Data Structures |  Applications of Stacks</div>
+            </div>
+        </div>
+    </header>
+
+    <aside id="sidebar">
+        
+        <ul>
+            <li><a href="../home/home.php">Home</a></li>
+            <li><a href="../pdf/DATA STRUCTURES E-BOOK.pdf" target="_blank">E-Book</a></li>
+            <li><a href="../theory/theory.php">Theory</a></li>
+            <li>
+                <a href="#">Labs</a>
+                <ul class="dropdown">
+                    <li><a href="../exp1stack/stack.html">Experiment 1: Stacks</a></li>
+                    <hr/>
+                    <li><a href="../exp2/intopostfix.html">Experiment 2: Infix to postfix</a></li>
+                    <hr/>
+                    <li><a href="../exp3/exp3.html">Experiment 3: Applications of stack</a></li>
+                    <hr/>
+                    <li><a href="../exp3postfixeval/postfix.html">Postfix Evaluation</a></li>
+                    <hr/>
+                    <li><a href="../exp3zparenthesis/parenthesis.html">Parenthesis Checker</a></li>
+                    <hr/>
+                    <li><a href="../exp4linearqueue/lqueue.html">Experiment 4: Linear Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp5circularqueue/cqueue.html">Experiment 5 : Circular Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp5dequeue/dequeue.html">Double Ended Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp6singlyll/singlyll.html">Experiment 6: Singly Linked List</a></li>
+                    <hr/>
+                    <li><a href="../exp7doublyll/doublyll.html">Experiment 7: Doubly Linked List</a></li>
+                    <hr/>
+                    <li><a href="../exp8bst/bst.html">Experiment 8: Binary Search Tree</a></li>
+                    <hr/>
+                    <li><a href="../exp8zavltree/avltree.html">AVL Tree</a></li>
+                    <hr/>
+                    <li><a href="../exp9graph/graph.html">Graph </a></li>
+                </ul>
+            </li>
+            <li><a href="../about/about.php">About Us</a></li>
+            <li><a href="../feedback/feedbackpg.php">Feedback</a></li>
+            <li><a href="../login/logout.php">Logout</a></li></ul>
+        <div id="labContentContainer"></div>
+    </aside>
+
+    <main>
+        <div class="content">
+            <!-- Fixed Navigation (Added here) -->
+        <nav id="fixedNav">
+            <a href="#aimSection">Aim</a>
+            <a href="#theorySection">Theory</a>
+            <a href="../exp3/exp3sim.html">Simulation 1</a>
+            <a href="../exp3/exp3sim2.html">Simulation 2</a>
+            <a href="../exp3/exp3quiz.html">Quiz</a>
+            <a href="../feedback/3exp3fb.php">Feedback</a>
+        </nav>
+
+            <div id="aimSection">
+                <p><b>Aim:</b>
+                    <div class='task'>Stack application using Array.
+                        <ol type="a"><li>Reverse the string</li> <li> Convert Decimal to Binary</li></ol></div></p>
+            </div>
+
+            <div id="theorySection">
+                <p><b>Theory:</b>
+                    <div class='task'>
+                        Reorder the data in such a way that the first and final elements are
+                    switched, the second and second-last elements are switched, and so on for all
+                    subsequent elements if we want to reverse a given collection of data.
+                    There are different reversing applications:
+                    <ul><li>Reversing a string</li>
+                    <li>Converting Decimal to Binary</li></ul>
+                    <ol><strong><li>
+                    Reverse a String</li></strong><br>
+                    A Stack can be used to reverse a string’s characters. This can be done by simply
+                    popping each character off of the stack one at a time after pushing them onto the stack
+                    one at a time. The initial character of the Stack is at the bottom of the Stack, the last
+                    character of the String is at the top, and due to the Stack’s last in first out property, after
+                    performing the pop operation in the Stack, the Stack returns the String in reverse order.<br>
+                    <i>Example: If we were to reverse the string Welcome, we would get Emoclew.</i><br>
+                    <img src="../media/strrev.png">
+
+                    <strong><li>Converting Decimal to Binary</li></strong><br>
+                    A number can be transformed from decimal to binary, octal, or hexadecimal using a
+                    stack. Any decimal number can be converted to a binary number by continually
+                    dividing it by two and pushing the residue of each division onto the stack until the
+                    result is 0. The binary counterpart of the provided decimal number is then obtained by
+                    popping the entire stack.<br>
+                    <i>Example: Converting 14 number Decimal to Binary:</i><br>
+                    <img src="../media/decbin.png">
+                    <br>
+                    In the example above, we get seven as a quotient and one as the reminder when we
+                    divide 14 by 2, and these two values are pushed onto the stack. When we divide
+                    seven by two once more, we get three as the quotient and one as the reminder,
+                    which is once more added to the Stack. The supplied number is lowered in this
+                    manner until it does not reach zero. The comparable binary number 1110 is what we
+                    receive after we totally pop off the stack.</ol>
+                    </div>
+                </p>
+            </div>
+
+                <p><b>Simulation:</b>
+                    <div class='task button-task'>
+                      <a href="../exp3/exp3sim.html"><button>Simulation of Reversing a string</button></a>
+                </div>
+                <div class='task button-task'>
+                    <a href="../exp3/exp3sim2.html"><button>Simulation of Decimal to Binary Conversion</button></a>
+              </div>
+
+                <p><b>Quiz:</b>
+                    <div class='task button-task'>
+                      <a href="../exp3/exp3quiz.html"><button>Attempt Quiz</button></a>
+                  </div>
+
+                  <p><b>Feedback:</b>
+                    <div class='task button-task'>
+                      <a href="../feedback/3exp3fb.php"><button>Feedback</button></a>
+                  </div>
+
+        </div>
+        <button id="topBtn" onclick="scrollToTop()">↑</button>
+    </main>
+
+    <footer>
+        <div class="dept">
+            <p>Department of Computer Engineering, KJSIT
+                <br>
+                Developed by : Simran Devrukhkar, Mahi Ghevariya, Aaryan Ghori
+                <br>
+                Guided by : <a href="https://kjsit.somaiya.edu.in/en/view-member/220291/">Prof. Pradnya Bhangale</a>, <a href="https://kjsit.somaiya.edu.in/en/view-member/220292/">Prof. Priyanka Deshmukh</a>
+            </p>
+        </div>
+    </footer>
+
+     <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const sidebar = document.getElementById("sidebar");
+
+        menuToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("show");
+        });
+
+        document.addEventListener("click", (event) => {
+            const isClickInside = sidebar.contains(event.target) || menuToggle.contains(event.target);
+            if (!isClickInside) {
+                sidebar.classList.remove("show");
+            }
+        });
+
+        window.onscroll = function () {
+            showScrollButton();
+        };
+        
+        function showScrollButton() {
+            let button = document.getElementById("topBtn");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                button.style.display = "block"; // Show when scrolled down
+            } else {
+                button.style.display = "none"; // Hide when at the top
+            }
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+</body>
+</html>
+
+

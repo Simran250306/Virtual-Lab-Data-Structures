@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infix to Postfix</title>
+    <link rel="stylesheet" href="../theory.css">
+    <script>
+        window.onscroll = function() {myFunction()};
+    
+        var header = document.getElementById("fixedNav");
+        var sticky = header.offsetTop;
+    
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+        </script>
+</head>
+
+<body>
+    <header>
+        <div id="headerContent">  <!-- Wrapper for content -->
+            <div id="menuToggle">&#9776;</div>  <!-- Menu Toggle Button -->
+            <div class="logo-container"> <!-- Logo container -->
+                <div class="img">
+                    <img src="../media/somaiya.png" alt="Somaiya Logo"/>
+                </div>
+                <div class="logo-text">Virtual Lab | Data Structures | Infix to Postfix</div>
+            </div>
+        </div>
+    </header>
+
+    <aside id="sidebar">
+        
+        <ul>
+            <li><a href="../home/home.php">Home</a></li>
+            <li><a href="../pdf/DATA STRUCTURES E-BOOK.pdf" target="_blank">E-Book</a></li>
+            <li><a href="../theory/theory.php">Theory</a></li>
+            <li>
+                <a href="#">Labs</a>
+                <ul class="dropdown">
+                    <li><a href="../exp1stack/stack.html">Experiment 1: Stacks</a></li>
+                    <hr/>
+                    <li><a href="../exp2/intopostfix.html">Experiment 2: Infix to postfix</a></li>
+                    <hr/>
+                    <li><a href="../exp3/exp3.html">Experiment 3: Applications of stack</a></li>
+                    <hr/>
+                    <li><a href="../exp3postfixeval/postfix.html">Postfix Evaluation</a></li>
+                    <hr/>
+                    <li><a href="../exp3zparenthesis/parenthesis.html">Parenthesis Checker</a></li>
+                    <hr/>
+                    <li><a href="../exp4linearqueue/lqueue.html">Experiment 4: Linear Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp5circularqueue/cqueue.html">Experiment 5 : Circular Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp5dequeue/dequeue.html">Double Ended Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp6singlyll/singlyll.html">Experiment 6: Singly Linked List</a></li>
+                    <hr/>
+                    <li><a href="../exp7doublyll/doublyll.html">Experiment 7: Doubly Linked List</a></li>
+                    <hr/>
+                    <li><a href="../exp8bst/bst.html">Experiment 8: Binary Search Tree</a></li>
+                    <hr/>
+                    <li><a href="../exp8zavltree/avltree.html">AVL Tree</a></li>
+                    <hr/>
+                    <li><a href="../exp9graph/graph.html">Graph </a></li>
+                </ul>
+            </li>
+            <li><a href="../about/about.php">About Us</a></li>
+            <li><a href="../feedback/feedbackpg.php">Feedback</a></li>
+            <li><a href="../login/logout.php">Logout</a></li></ul>
+        <div id="labContentContainer"></div>
+    </aside>
+
+    <main>
+        <div class="content">
+            <!-- Fixed Navigation (Added here) -->
+        <nav id="fixedNav">
+            <a href="#aimSection">Aim</a>
+            <a href="#theorySection">Theory</a>
+            <a href="#algorithmSection">Algorithm</a>
+            <a href="../exp2/intopostfixsim.html">Simulation</a>
+            <a href="../exp2/intopostfixquiz.html">Quiz</a>
+            <a href="../feedback/2intopostfixfb.php">Feedback</a>
+        </nav>
+
+            <div id="aimSection">
+                <p><b>Aim:</b>
+                    <div class='task'>Convert an Infix expression to postfix expression using stack ADT.</div></p>
+            </div>
+
+            <div id="theorySection">
+                <p><b>Theory:</b>
+                    <div class='task'>
+                        <i>Infix expression:</i> The expression of the form “a operator b” (a + b) i.e., when an operator is in-between every pair of operands.<br>
+                        <i>Postfix expression:</i> The expression of the form “a+b operator” (ab+) i.e., When every pair of operands is followed by an operator.<br>
+                        To convert infix expression to postfix expression, we will use the stack data structure.
+                        By scanning the infix expression from left to right, when we will get any operand,
+                        simply add them to the postfix form, and for the operator and parenthesis, add them
+                        in the stack maintaining the precedence of them.
+                    </div>
+                </p>
+            </div>
+
+            <div id="algorithmSection">
+                <p>
+                    <b>Algorithm: </b>
+                    <div class='task'>
+                        1. Scan the infix expression from left to right. 
+                        <br>2. If the scanned character is an operand, put it in the postfix expression. 
+                        <br>3. Otherwise, do the following
+                        <div class='task2'>a. If the precedence and associativity of the scanned operator are greater than the precedence and associativity of the operator in the stack [or the stack is empty or the stack contains a ‘(‘ ], then push it in the stack. 
+                        [‘^‘ operator is right associative and other operators like ‘+‘,’–‘,’*‘ and ‘/‘ are left-associative].<br>
+                        <div class="task2">
+                            <ul>
+                                <li>Check especially for a condition when the operator at the top of the stack and the scanned operator both are ‘^‘. In this condition, the precedence of the scanned operator is higher due to its right associativity. 
+                                So it will be pushed into the operator stack.</li> <br>
+                                <li>In all the other cases when the top of the operator stack is the same as the scanned operator, 
+                                then pop the operator from the stack because of left associativity due to which the scanned operator has less precedence.</li>
+                                </ul>
+                        </div> 
+                        b. Else, Pop all the operators from the stack which are greater than or equal to in precedence than that of the scanned operator.
+                        After doing that Push the scanned operator to the stack. (If you encounter parenthesis while popping then stop there and push the scanned operator in the stack.)  
+                        </div>
+                        4. If the scanned character is a ‘(‘, push it to the stack. 
+                        <br>5. If the scanned character is a ‘)’, pop the stack and output it until a ‘(‘ is encountered, and discard both the parenthesis. 
+                        <br>6. Repeat steps 2-5 until the infix expression is scanned. 
+                        <br>7. Once the scanning is over, Pop the stack and add the operators in the postfix expression until it is not empty.
+                        <br>8. Finally, print the postfix expression.
+                        </div>
+                </p>
+            </div>
+                <p><b>Simulation:</b>
+                    <div class='task button-task'>
+                      <a href="../exp2/intopostfixsim.html"><button>Simulation of Infix to Postfix Conversion</button></a>
+                </div>
+
+                <p><b>Quiz:</b>
+                    <div class='task button-task'>
+                      <a href="../exp2/intopostfixquiz.html"><button>Attempt Quiz</button></a>
+                  </div>
+
+                  <p><b>Quiz:</b>
+                    <div class='task button-task'>
+                      <a href="../feedback/2intopostfixfb.php"><button>Feedback</button></a>
+                  </div>
+
+        </div>
+        <button id="topBtn" onclick="scrollToTop()">↑</button>
+    </main>
+
+    <footer>
+        <div class="dept">
+            <p>Department of Computer Engineering, KJSIT
+                <br>
+                Developed by : Simran Devrukhkar, Mahi Ghevariya, Aaryan Ghori
+                <br>
+                Guided by : <a href="https://kjsit.somaiya.edu.in/en/view-member/220291/">Prof. Pradnya Bhangale</a>, <a href="https://kjsit.somaiya.edu.in/en/view-member/220292/">Prof. Priyanka Deshmukh</a>
+            </p>
+        </div>
+    </footer>
+
+     <script>
+        window.onscroll = function () {
+            showScrollButton();
+        };
+        
+        function showScrollButton() {
+            let button = document.getElementById("topBtn");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                button.style.display = "block"; // Show when scrolled down
+            } else {
+                button.style.display = "none"; // Hide when at the top
+            }
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        
+        const menuToggle = document.getElementById("menuToggle");
+        const sidebar = document.getElementById("sidebar");
+
+        menuToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("show");
+        });
+
+        document.addEventListener("click", (event) => {
+            const isClickInside = sidebar.contains(event.target) || menuToggle.contains(event.target);
+            if (!isClickInside) {
+                sidebar.classList.remove("show");
+            }
+        });
+    </script>
+</body>
+</html>
+
+

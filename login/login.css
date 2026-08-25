@@ -1,0 +1,172 @@
+/* General Styles */
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url("../media/signupimg.png"); /* Make sure this path is correct */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 20px; /* Add some padding for smaller screens */
+    box-sizing: border-box;
+}
+
+.login-container {
+    /* --- Glass Effect --- */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* --- Styling --- */
+    padding: 35px 40px; /* Increased vertical padding */
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    color: #333;
+}
+
+/* Standardized Heading */
+.login-container h1 {
+    margin-top: 0; /* Remove default top margin */
+    margin-bottom: 30px; /* Increased space below heading */
+    color: #800000;
+    font-weight: bold;
+    font-size: 24px; /* Slightly adjust size if needed */
+}
+
+.input-group {
+    margin-bottom: 20px; /* Consistent spacing */
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px; /* More space below label */
+    color: #444;
+    font-size: 14px;
+}
+
+.input-group input {
+    background-color: rgba(255, 255, 255, 0.75); /* Slightly more opaque */
+    width: 100%;
+    padding: 12px 15px; /* Adjust padding */
+    border: 1px solid rgba(200, 200, 200, 0.5);
+    border-radius: 6px;
+    font-size: 15px;
+    color: #333;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s; /* Added transitions */
+}
+
+.input-group input:focus {
+    border-color: #933;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.95); /* Almost opaque on focus */
+    box-shadow: 0 0 0 3px rgba(153, 51, 51, 0.2); /* Softer focus ring */
+}
+
+/* Primary Button Styling */
+.login-button {
+    background-color: #933;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%; /* Full width */
+    transition: background-color 0.3s, transform 0.1s;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 10px; /* Space above button */
+    margin-bottom: 25px; /* Space below button before HR */
+    box-sizing: border-box; /* Include padding in width */
+    text-align: center; /* Center text */
+}
+
+.login-button:hover {
+    background-color: #7a2a2a;
+}
+.login-button:active {
+    transform: scale(0.98);
+}
+
+
+hr {
+    border: none;
+    border-top: 1px solid rgba(153, 51, 51, 0.3);
+    margin: 0 0 25px 0; /* Remove top margin, keep bottom */
+}
+
+/* Google Button Container */
+.google-button {
+     margin-bottom: 25px; /* Space below Google button */
+}
+
+/* Google Button Link Styling */
+.google-button a {
+    display: block; /* Make it block to take full width */
+    width: 100%;   /* Full width */
+    box-sizing: border-box; /* Include padding in width */
+    background-color: #fff;
+    color: #555;
+    border: 1px solid #ddd;
+    padding: 11px 20px; /* Match padding height of .login-button */
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 15px; /* Slightly smaller than main button */
+    font-weight: bold;
+    text-align: center; /* Center text */
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.google-button a:hover {
+    background-color: #f8f8f8;
+    color: #333;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Extra Links Styling */
+.extra-links {
+    margin-top: 0; /* Remove top margin as HR provides space */
+    font-size: 14px;
+    text-align: center; /* Center the links */
+    color: #555; /* Color for plain text */
+}
+
+.extra-links a {
+    color: #800000; /* Match heading color */
+    text-decoration: none;
+    margin: 0 5px; /* Add some spacing around links/separator */
+    font-weight: bold;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
+
+.extra-links span {
+    margin: 0 5px; /* Spacing around separator/text */
+    color: #999; /* Slightly muted color for separator/text */
+}
+
+
+/* Placeholder Styles */
+::placeholder {
+  color: #888;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  color: #888;
+}
+::-ms-input-placeholder {
+  color: #888;
+}

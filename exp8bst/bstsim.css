@@ -1,0 +1,305 @@
+/* Reset (Optional, but recommended) */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scrollbar-color: #933 #fff;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Default font */
+  }
+  
+  body {
+    background-image: url('../media/bgimg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: #93332e;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem;
+  }
+  
+  #headerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+  }
+  
+  .logo-text {
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 1rem;
+  }
+  
+  .img img {
+    max-height: 100px;
+    width: auto;
+  }
+  
+  .pushbtn {
+    padding: 6px 12px;
+    /* Smaller "Go Back" button */
+    font-size: 18px;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    width: auto;
+    /*Adjust to the content*/
+    background-color: #93332e;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button {
+    width: auto;
+    /*Adjust to the content*/
+    min-width: 80px;
+    /* Minimum button width for consistency */
+    font-size: 16px;
+    background-color: #93332e;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Consistent font */
+  }
+  
+  button:hover {
+    background-color: #702723;
+    /* Darken on hover */
+  }
+  
+  .content {
+    color: #933;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+  }
+  
+  /* Tree and Operation Containers */
+/* Tree and Operation Containers */
+.tree-wrapper {
+  display: flex;
+  flex-direction: column; /* Stack heading and tree vertically */
+
+}
+
+.tree-operation-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+.tree-operation-wrapper h3{
+  font-size: 20px;
+}
+  .tree-container {
+    width: 800px;
+    height: 450px;
+    overflow-x: auto; 
+    overflow-y: auto;
+    border: 2px solid #933;
+    background-color: #f9f9f9;
+  }
+  
+  
+  
+  #tree {
+    width: 2000px;
+    height: 2000px;
+    display: block;
+    min-width: 500px;  /* Minimum width to ensure scrollbars appear */
+    min-height: 500px; /* Minimum height to ensure scrollbars appear */
+}
+  
+  .operation-container {
+    width: 40%;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #933;
+    font-size: 20px;
+  }
+  
+  /* Style for the operation box */
+  #operation-box {
+    border: 2px solid #933;
+    padding: 10px;
+    height: 450px;
+    overflow-y: auto;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #933;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    white-space: pre-wrap;
+  }
+  
+  /* Input and Button Container */
+  .button-container {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row; /* Arrange horizontally by default */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Align items vertically */
+    margin-bottom: 1rem;
+    gap: 0.5rem; /* Space between input/button groups */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  }
+  
+  #element-input,
+  #delete-input,
+  #search-input {
+    border: 1px solid #93332e;
+    padding: 8px;
+    border-radius: 4px;
+    color: #333;
+    width: 200px; /* Adjusted width */
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-right: 0.5rem;
+  }
+  
+  /* Placeholder Style */
+  #element-input::placeholder,
+  #delete-input::placeholder,
+  #search-input::placeholder {
+    color: #933;
+    opacity: 1;
+    /* Required for Firefox */
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #93332e;
+    color: #f5f6f6;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .footer a {
+    color: #f5f6f6;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer a:hover {
+    color: #cdc2ae;
+  }
+  
+  /* Box */
+  .box {
+    margin: 2rem auto;
+    width: 80%;
+    text-align: center;
+  }
+  
+  /* Image */
+  .img img {
+    max-width: 50%;
+    height: auto;
+    background-color: #f5f6f6;
+    padding: 0.2rem;
+    margin: 0.5rem auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Department */
+  .dept {
+    background-color: #93332e;
+    color: #f5f6f6;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .dept a {
+    color: #f5f6f6;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .dept a:hover {
+    color: #cdc2ae;
+  }
+  
+  /* Style for highlighted node */
+  .highlighted-node {
+    fill: rgb(239, 148, 156) !important;
+  }
+  
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .tree-operation-wrapper {
+      flex-direction: column;
+      /* Stack tree and operations vertically */
+    }
+  
+    .tree-container,
+    .operation-container {
+      width: 100%;
+      /* Each takes full width */
+    }
+  
+    .button-container {
+      flex-direction: column;
+      /* Stack input and button vertically */
+    }
+  
+    #element-input,
+    #delete-input,
+    #search-input {
+      width: 100%;
+      /* Input takes full width */
+      margin-bottom: 0.5rem;
+      margin-right: 0;
+    }
+  
+    button {
+      width: 100%;
+      /* Button takes full width */
+    }
+  
+    .button-container {
+          flex-direction: column;
+          align-items: stretch; /* Make items the same width */
+      }
+  
+      .button-container input,
+      .button-container button {
+          width: 100%;
+          margin-bottom: 0.5rem; /* Add some space between items */
+      }
+  }

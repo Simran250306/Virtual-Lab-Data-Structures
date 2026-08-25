@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reversing a String Simulator</title>
+    <link rel="stylesheet" href="exp3sim.css">
+</head>
+
+<body>
+    <header>
+        <div id="headerContent">
+            <div class="logo-container">
+                <div class="img">
+                    <img src="../media/somaiya.png" alt="Somaiya Logo" />
+                </div>
+                <div class="logo-text">Virtual Lab | Data Structures | Reversing a string</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Reverse the String using Stack</h1>
+
+            <div class="input-controls">
+                <input type="text" id="inputString" placeholder="Enter a long string" />
+                <button id="pushBtn">Push</button>
+                <button id="popBtn" disabled>Pop</button>
+                <button id="resetBtn">Reset</button>
+            </div>
+
+            <div class="simulation-container">
+                <div class="stack-container">
+                    <h2>Stack Visualization</h2>
+                    <div id="stack" class="stack"></div>
+                </div>
+
+                <div class="operation-container">
+                    <h2>Operations</h2>
+                    <div id="operations" class="operations">
+                        <div id="pushOperations" class="operation-column">
+                            <h2>Push</h2>
+                        </div>
+                        <div id="popOperations" class="operation-column">
+                            <h2>Pop</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="output-container">
+                <h2>Reversed String</h2>
+                <h3 id="output"></h3>
+            </div>
+
+        </div>
+        <button class="pushbtn" onclick="goBack()">Go Back</button>
+    </main>
+
+    <footer>
+        <div class="dept">
+            <p>Department of Computer Engineering, KJSIT
+                <br> Developed by : Simran Devrukhkar, Mahi Ghevariya, Aaryan Ghori
+                <br> Guided by : 
+                <a href="https://kjsit.somaiya.edu.in/en/view-member/220291/">Prof. Pradnya Bhangale</a>, <a href="https://kjsit.somaiya.edu.in/en/view-member/220292/">Prof. Priyanka
+                    Deshmukh</a>
+            </p>
+        </div>
+    </footer>
+    <script src="exp3sim.js"></script>
+</body>
+
+</html>

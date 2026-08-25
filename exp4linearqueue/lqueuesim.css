@@ -1,0 +1,478 @@
+/* Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scrollbar-color: #933 #fff;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../media/bgimg.png'); /* Ensure path is correct */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keep background fixed */
+    color: white;
+    font-family: "Times New Roman", sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+}
+
+header {
+    background-color: #93332e;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+#headerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.logo-text {
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 1rem;
+}
+
+.img img {
+    max-width: 50%;
+    height: auto;
+    background-color: #f5f6f6;
+    padding: 0.2rem;
+    margin: 0.5rem auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* --- NEW LAYOUT STYLES --- */
+.main-content-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px; /* Space between left and right containers */
+    padding: 20px; /* Padding around the content area */
+    flex-grow: 1; /* Allow this section to grow and fill space */
+    align-items: flex-start;
+}
+
+.left-container {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(147, 51, 46, 0.2);
+    color: #333; /* Darker text color for readability on light background */
+    flex: 1; /* Try to take equal space */
+    min-width: 300px; /* Minimum width before wrapping */
+    display: flex; /* Use flexbox internally */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.right-container { 
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(147, 51, 46, 0.2);
+    color: #333;
+    flex-basis: 350px; /* Give it a slightly larger base width */
+    flex-grow: 0;     /* Don't allow it to grow further */
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.left-container h1, .right-container h2 {
+    color: #93332e;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* --- END NEW LAYOUT STYLES --- */
+
+/* Styles for elements moved into left-container */
+.queue-info {
+    background: linear-gradient(to right, rgba(230, 230, 230, 0.9), rgba(240, 240, 240, 0.8)); /* Adjusted background */
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+    color: #93332e;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(147, 51, 46, 0.15);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.queue-info label {
+    margin-right: 5px;
+}
+
+.queue-info p {
+    margin: 5px 15px;
+}
+
+.queue-container {
+    position: relative;
+    margin-top: 60px;
+    margin-bottom: 80px;
+    min-height: 80px;
+    width: 100%; /* Ensure it takes full width of left container */
+}
+
+.queue {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden; /* Changed from visible to hidden */
+    box-shadow: 0 4px 12px rgba(147, 51, 46, 0.3);
+    margin-bottom: 20px;
+    background-color: #eee; /* Background for the queue area */
+    min-height: 80px; /* Ensure it has height even when empty */
+}
+
+.queue-bar {
+    flex-grow: 1;
+    flex-basis: 0; /* Allow items to shrink and grow evenly */
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #b73e38, #93332e);
+    color: #fff;
+    font-size: clamp(16px, 3vw, 24px); /* Responsive font size */
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    transition: all 0.3s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    min-width: 40px; /* Prevent bars from becoming too narrow */
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+    white-space: nowrap;
+}
+
+.queue-bar:not(:last-child) {
+    border-right: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.queue-bar:nth-child(odd) {
+    background: linear-gradient(to bottom, #d84551, #c23e45);
+}
+
+.queue-bar:empty {
+    background: linear-gradient(to bottom, #f0f0f0, #dcdcdc);
+    border: 1px dashed #aaa;
+}
+
+.queue-bar:empty:nth-child(odd) {
+    background: linear-gradient(to bottom, #f0f0f0, #dcdcdc);
+    border: 1px dashed #bbb;
+}
+
+
+/* Queue bar highlight effects */
+.enqueued {
+    animation: pulse 0.8s;
+}
+
+.dequeued {
+    background: linear-gradient(to bottom, #888, #666) !important; /* Darker grey */
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.button-container {
+    margin-top: 20px; /* Adjusted margin */
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    flex-wrap: wrap; /* Allow controls to wrap */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="number"], input[type="text"] {
+    padding: 8px;
+    border: 2px solid #93332e;
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+input[type="number"] {
+    width: 150px;
+}
+input[type="text"] {
+    flex-grow: 1; /* Allow text input to take more space */
+    min-width: 150px;
+}
+
+
+button { /* General button style */
+    padding: 10px 15px;
+    background: linear-gradient(145deg, #93332e, #852d29);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Unified button font size */
+    font-family: 'Times New Roman', Times, serif;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+button:hover {
+    background: linear-gradient(145deg, #b73e38, #93332e);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* Arrow Styles (Adjusted positioning context) */
+#front-arrow, #rear-arrow {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: left 0.3s ease-in-out;
+    z-index: 10; /* Ensure arrows are above queue bars */
+    /* transform: translateX(-50%); Removed for simpler left calculation */
+}
+
+#front-arrow { top: -50px; }
+#rear-arrow { bottom: -60px; }
+
+.front-arrow-text, .rear-arrow-text {
+    font-weight: bold;
+    color: #93332e;
+    white-space: nowrap;
+    position: relative; /* For offset */
+    left: 0;
+    transition: left 0.2s ease;
+    background-color: rgba(255, 255, 255, 0.7); /* Add background for readability */
+    padding: 0 3px;
+    border-radius: 3px;
+}
+.front-arrow-text { order: 1; margin-bottom: 2px; }
+.rear-arrow-text { order: 3; margin-top: 2px; }
+
+
+.front-arrow-line, .rear-arrow-line {
+    width: 3px;
+    height: 30px;
+    background-color: #93332e;
+}
+.front-arrow-line { order: 2; }
+.rear-arrow-line { order: 2; }
+
+
+.front-arrow-head {
+    width: 0; height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 12px solid #93332e;
+    margin-top: -1px;
+    order: 3;
+}
+.rear-arrow-head {
+    width: 0; height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid #93332e;
+    margin-bottom: -1px;
+    order: 1;
+}
+
+/* Styles for elements moved into right-container */
+.instruction-box {
+    margin-top: 10px; /* Reduced margin */
+    font-size: 16px; /* Slightly smaller */
+    color: #333; /* Darker text */
+    height: 400px; /* Or adjust to your preferred fixed height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: left;
+    white-space: pre-line;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.instruction {
+    margin-bottom: 8px;
+    color: #444;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 5px;
+    font-size: 0.95em;
+}
+.instruction:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#queue-placeholder {
+    color: #93332e;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    padding: 30px;
+    background: rgba(220, 220, 220, 0.7); /* Placeholder background */
+    border-radius: 8px;
+    margin: 0 auto 20px auto; /* Center horizontally, add bottom margin */
+    width: 90%; /* Take most of the width */
+    animation: pulse 2s infinite;
+}
+
+/* Go Back Button Styling */
+.pushbtn {
+    padding: 8px 16px; /* Adjusted padding */
+    font-size: 16px; /* Adjusted size */
+    margin: 20px auto; /* Center button below content */
+    display: block;
+    width: fit-content; /* Size to content */
+    /* Inherits general button styles, add specifics if needed */
+}
+
+/* Footer */
+.footer {
+    /* Kept original styles */
+    background-color: #f5f6f6;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.dept {
+    background-color: #93332e;
+    color: #f5f6f6;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    /* margin-top: auto; Removed as body flex handles this */
+}
+
+.dept a {
+    color: #f5f6f6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.dept a:hover {
+    color: #cdc2ae;
+}
+
+/* CSS animation */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(147, 51, 46, 0.4); } /* Adjusted color intensity */
+    70% { box-shadow: 0 0 0 10px rgba(147, 51, 46, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(147, 51, 46, 0); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) { /* Tablet and below */
+    .main-content-wrapper {
+        flex-direction: column; /* Stack containers vertically */
+        padding: 10px;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .left-container, .right-container {
+        flex-basis: auto; /* Reset basis */
+        min-width: unset; /* Reset min-width */
+        width: 100%; /* Take full width */
+        flex-grow: 0; /* Don't grow, just stack */
+    }
+
+    .instruction-box {
+        height: 250px; /* Fixed height might be better here */
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+    }
+    .img img {
+        max-height: 80px;
+    }
+
+    .queue-bar {
+        font-size: 14px; /* Smaller font in bars */
+        height: 60px;
+    }
+     .queue-container {
+        margin-top: 45px;
+        margin-bottom: 65px;
+    }
+     #front-arrow { top: -40px; }
+     #rear-arrow { bottom: -50px; }
+
+     .button-container {
+         flex-direction: column; /* Stack controls */
+         align-items: stretch; /* Make controls full width */
+     }
+     input[type="text"], input[type="number"] {
+         width: 100%;
+     }
+}
+
+@media (max-width: 480px) { /* Mobile */
+     header {
+        padding: 0.5rem;
+    }
+    .logo-text {
+        font-size: 1.2rem;
+        margin-left: 0.5rem;
+    }
+    .img img {
+        max-height: 60px;
+    }
+     .left-container h1, .right-container h2 {
+        font-size: 1.5rem;
+    }
+     .queue-bar {
+        font-size: 12px;
+        min-width: 30px;
+    }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deque Simulator</title> 
+    <link rel="stylesheet" href="dequeuesim.css"> 
+</head>
+<body>
+    <header>
+        <div id="headerContent">
+            <div class="logo-container">
+                <div class="img">
+                    <img src="../media/somaiya.png" alt="Somaiya Logo"/>
+                </div>
+                <div class="logo-text">Virtual Lab | Data Structures | Deque </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content-wrapper">
+        <!-- Left Container: Deque Simulation -->
+        <div class="left-container">
+            <h1>Deque Simulator</h1> 
+
+            <!-- Deque Setup Info -->
+            <div class="queue-info"> 
+                <div>
+                    <label for="size-input">Deque Size:</label> 
+                    <input type="number" id="size-input" placeholder="Enter Size (1-20)">
+                    <button id="set-size-button">Set</button>
+                </div>
+                <p>Max Size: <span id="max-deque-size">Not Set</span></p> 
+                <p>Front: <span id="front-position">-1</span>, Rear: <span id="rear-position">-1</span></p>
+            </div>
+
+            <!-- Deque Visualization -->
+            <div class="queue-container"> 
+                <div id="front-arrow" style="display:none;">
+                    <div class="front-arrow-text">Front</div>
+                    <div class="front-arrow-line"></div>
+                    <div class="front-arrow-head"></div>
+                </div><br>
+
+                <div id="deque-placeholder">Set the deque size to begin</div>
+                <div class="queue" id="deque" style="display: none;">
+                    <!-- Deque bars dynamically added -->
+                </div>
+
+                <div id="rear-arrow" style="display:none;">
+                    <div class="rear-arrow-head"></div>
+                    <div class="rear-arrow-line"></div>
+                    <div class="rear-arrow-text">Rear</div>
+                </div>
+            </div>
+
+            <!-- Deque Controls -->
+            <div class="button-container">
+                <input type="text" id="element-input" placeholder="Element" disabled> 
+                <button id="add-front-button" onclick="addFrontElement()" disabled>Add Front</button>
+                <button id="add-rear-button" onclick="addRearElement()" disabled>Add Rear</button>
+                <button id="remove-front-button" onclick="removeFrontElement()" disabled>Remove Front</button>
+                <button id="remove-rear-button" onclick="removeRearElement()" disabled>Remove Rear</button>
+            </div>
+        </div>
+
+        <!-- Right Container: Operations Log -->
+        <div class="right-container">
+            <h2>Operations Log</h2>
+            <div class="instruction-box" id="instruction-box">
+                <!-- Instructions dynamically added -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Moved Go Back button outside the main flex wrapper -->
+    <button class="pushbtn" onclick="goBack()">Go Back</button>
+
+    <footer>
+        <div class="dept">
+            <p>Department of Computer Engineering, KJSIT
+                <br>
+                Developed by : Simran Devrukhkar, Mahi Ghevariya, Aaryan Ghori
+                <br>
+                Guided by : <a href="https://kjsit.somaiya.edu.in/en/view-member/220291/">Prof. Pradnya Bhangale</a>, <a href="https://kjsit.somaiya.edu.in/en/view-member/220292/">Prof. Priyanka Deshmukh</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="dequeuesim.js"></script>
+</html>

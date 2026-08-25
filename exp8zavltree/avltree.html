@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVL Tree</title>
+    <link rel="stylesheet" href="../theory.css">
+    <script>
+        window.onscroll = function() {myFunction()};
+    
+        var header = document.getElementById("fixedNav");
+        var sticky = header.offsetTop;
+    
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+        </script>
+</head>
+
+<body>
+    <header>
+        <div id="headerContent">  <!-- Wrapper for content -->
+            <div id="menuToggle">&#9776;</div>  <!-- Menu Toggle Button -->
+            <div class="logo-container"> <!-- Logo container -->
+                <div class="img">
+                    <img src="../media/somaiya.png" alt="Somaiya Logo"/>
+                </div>
+                <div class="logo-text">Virtual Lab | Data Structures | AVL Tree</div>
+            </div>
+        </div>
+    </header>
+
+    <aside id="sidebar">
+        
+        <ul>
+            <li><a href="../home/home.php">Home</a></li>
+            <li><a href="../pdf/DATA STRUCTURES E-BOOK.pdf" target="_blank">E-Book</a></li>
+            <li><a href="../theory/theory.php">Theory</a></li>
+            <li>
+                <a href="#">Labs</a>
+                <ul class="dropdown">
+                    <li><a href="../exp1stack/stack.html">Experiment 1: Stacks</a></li>
+                    <hr/>
+                    <li><a href="../exp2/intopostfix.html">Experiment 2: Infix to postfix</a></li>
+                    <hr/>
+                    <li><a href="../exp3/exp3.html">Experiment 3: Applications of stack</a></li>
+                    <hr/>
+                    <li><a href="../exp3postfixeval/postfix.html">Postfix Evaluation</a></li>
+                    <hr/>
+                    <li><a href="../exp3zparenthesis/parenthesis.html">Parenthesis Checker</a></li>
+                    <hr/>
+                    <li><a href="../exp4linearqueue/lqueue.html">Experiment 4: Linear Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp5circularqueue/cqueue.html">Experiment 5 : Circular Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp5dequeue/dequeue.html">Double Ended Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp6singlyll/singlyll.html">Experiment 6: Singly Linked List</a></li>
+                    <hr/>
+                    <li><a href="../exp7doublyll/doublyll.html">Experiment 7: Doubly Linked List</a></li>
+                    <hr/>
+                    <li><a href="../exp8bst/bst.html">Experiment 8: Binary Search Tree</a></li>
+                    <hr/>
+                    <li><a href="../exp8zavltree/avltree.html">AVL Tree</a></li>
+                    <hr/>
+                    <li><a href="../exp9graph/graph.html">Graph </a></li>
+                </ul>
+            </li>
+            <li><a href="../about/about.php">About Us</a></li>
+            <li><a href="../feedback/feedbackpg.php">Feedback</a></li>
+            <li><a href="../login/logout.php">Logout</a></li></ul>
+        <div id="labContentContainer"></div>
+    </aside>
+
+    <main>
+        <div class="content">
+            <!-- Fixed Navigation (Added here) -->
+        <nav id="fixedNav">
+            <a href="#aimSection">Aim</a>
+            <a href="#theorySection">Theory</a>
+            <a href="#algorithmSection">Algorithm</a>
+            <a href="../exp8zavltree/avltreesim.html">Simulation</a>
+            <a href="../exp8zavltree/avltreequiz.html">Quiz</a>
+            <a href="../feedback/12avltreefb.php">Feedback</a>
+        </nav>
+
+            <div id="aimSection">
+                <p><b>Aim:</b>
+                    <div class='task'>AVL Tree ADT.</div></p>
+            </div>
+
+            <div id="theorySection">
+                <p><b>Theory:</b>
+                    <div class='task'>
+                        An AVL Tree is a self-balancing binary search tree where the difference between the heights of left and right subtrees of any node 
+                        (called the balance factor) is at most 1. Named after its inventors Adelson-Velsky and Landis, AVL trees ensure faster operations 
+                        compared to unbalanced binary search trees by maintaining this balance.<br>
+                        <strong>Rotations in AVL Tree</strong><br>
+                        To maintain balance, the tree undergoes rotations when an insertion or deletion disrupts its balance. 
+                        There are four types of rotations:
+                      <div class="task2">
+                          <ol type="A">
+                            <li><strong>Left Rotation (LL Rotation):</strong></li>
+                            <p>When nodes are inserted into the right subtree, causing a right-heavy imbalance.</p>
+                            <li><strong>Right Rotation (RR Rotation):</strong></li>
+                            <p>When nodes are inserted into the left subtree, causing a left-heavy imbalance.</p>
+                            <li><strong>Left-Right Rotation (LR Rotation):</strong></li>
+                            <p>When a node is inserted into the left subtree of the right child, requiring a left rotation followed by a right rotation.</p>
+                            <li><strong>Right-Left Rotation (RL Rotation):</strong></li>
+                            <p>When a node is inserted into the right subtree of the left child, requiring a right rotation followed by a left rotation.</p>
+                        </ol>
+                      </div>
+                    </div>
+                </p>
+            </div>
+
+            <div id="algorithmSection">
+                <p>
+                    <b>Algorithm: </b>
+                    <div class='task'>
+                        <ol type="A">
+                            <li><strong>Insertion in AVL Tree</strong></li>
+                            <div class="task2">
+                                <ol>
+                                    <li>Perform a standard BST insertion.</li>
+                                    <li>Update the height of the current node. </li>
+                                    <li>Calculate the balance factor:
+                                        <ul><li>If balance factor > 1(left-heavy tree)
+                                            <ul>
+                                                <li>Perform Right Rotation (RR) if the left child is left-heavy.</li>
+                                                <li>Perform Left-Right Rotation (LR) if the left child is right-heavy.</li>
+                                            </ul>
+                                        </li>
+                                        <li>If balance factor < -1 (right-heavy tree):
+                                            <ul>
+                                                <li>Perform Left Rotation (LL) if the right child is right-heavy.</li>
+                                                <li>Perform Right-Left Rotation (RL) if the right child is left-heavy.</li>
+                                            </ul>
+                                        </li>
+                                        </ul>
+                                    </li>
+                                  </ol>
+                            </div>
+                            <li><strong>Deletion in AVL Tree</strong></li>
+                            <div class="task2">
+                                <ol>
+                                    <li>Perform a standard BST deletion.</li>
+                                    <li>Update the height of the affected node.</li>
+                                    <li>Calculate the balance factor and apply necessary rotations similar to insertion.</li>
+                                </ol>
+                            </div>
+                          </ol>
+                    </div>
+            </div>
+
+                <p><b>Simulation:</b>
+                    <div class='task button-task'>
+                      <a href="../exp8zavltree/avltreesim.html"><button>Simulation of AVL Tree</button></a>
+                </div>
+
+                <p><b>Quiz:</b>
+                    <div class='task button-task'>
+                      <a href="../exp8zavltree/avltreequiz.html"><button>Attempt Quiz</button></a>
+                  </div>
+
+                  <p><b>Feedback:</b>
+                    <div class='task button-task'>
+                      <a href="../feedback/12avltreefb.php"><button>Feedback</button></a>
+                  </div>
+        </div>
+        <button id="topBtn" onclick="scrollToTop()">↑</button>
+    </main>
+
+    <footer>
+        <div class="dept">
+            <p>Department of Computer Engineering, KJSIT
+                <br>
+                Developed by : Simran Devrukhkar, Mahi Ghevariya, Aaryan Ghori
+                <br>
+                Guided by : <a href="https://kjsit.somaiya.edu.in/en/view-member/220291/">Prof. Pradnya Bhangale</a>, <a href="https://kjsit.somaiya.edu.in/en/view-member/220292/">Prof. Priyanka Deshmukh</a>
+            </p>
+        </div>
+    </footer>
+
+     <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const sidebar = document.getElementById("sidebar");
+
+        menuToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("show");
+        });
+
+        document.addEventListener("click", (event) => {
+            const isClickInside = sidebar.contains(event.target) || menuToggle.contains(event.target);
+            if (!isClickInside) {
+                sidebar.classList.remove("show");
+            }
+        });
+
+        window.onscroll = function () {
+            showScrollButton();
+        };
+        
+        function showScrollButton() {
+            let button = document.getElementById("topBtn");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                button.style.display = "block"; // Show when scrolled down
+            } else {
+                button.style.display = "none"; // Hide when at the top
+            }
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+</body>
+</html>
+
+

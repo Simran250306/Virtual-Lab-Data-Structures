@@ -1,0 +1,558 @@
+/* Reset (Optional, but recommended) */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Apply scrollbar style more broadly if desired */
+* {
+    scrollbar-color: #933 #f0f0f0; /* thumb track */
+    scrollbar-width: thin;
+}
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+*::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #93332e;
+    border-radius: 4px;
+}
+
+
+html, body {
+    height: 100%; /* Ensure html takes height */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../media/bgimg.png'); /* Check path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Prevents background scroll */
+    color: white; /* Default text color - might be overridden */
+    font-family: "Times New Roman", Times, serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+}
+
+main {
+    flex-grow: 1; /* Allows main content to expand and push footer down */
+    width: 100%;
+}
+
+header {
+    background-color: #93332e;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.5rem 1rem; /* Adjusted padding */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Optional shadow */
+}
+
+#headerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    max-width: 1400px; /* Optional max-width for very large screens */
+    margin: 0 auto; /* Center header content */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1; /* Takes available space */
+    gap: 1rem; /* Space between logo and text */
+}
+
+.logo-text {
+    font-size: 1.6rem; /* Adjusted size */
+    text-align: left; /* Align left */
+    font-weight: bold;
+    /* Removed margin-left, using gap now */
+}
+
+/* Specific image styling within header */
+#headerContent .img img {
+    max-height: 60px; /* Adjusted logo size */
+    width: auto;
+    display: block; /* Remove extra space below image */
+    background-color: #f5f6f6; /* Background for logo */
+    padding: 5px;
+    border-radius: 4px;
+}
+
+
+/* --- UI Styles --- */
+.container {
+    max-width: 1200px;
+    margin: 20px auto; /* Added top/bottom margin */
+    padding: 15px;
+    background-color: rgba(253, 246, 246, 0.9); /* Slightly transparent background for content */
+    border-radius: 8px; /* Rounded corners for container */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Make H1 text color visible on light background */
+.container h1 {
+    color: #93332e;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive font size */
+}
+
+input[type="number"] {
+    padding: 6px 10px; /* Slightly more padding */
+    border: 2px solid #93332e;
+    border-radius: 5px;
+    width: 80px; /* Slightly reduced default width */
+    font-size: 0.9rem;
+    font-family: 'Times New Roman', Times, serif;
+    transition: all 0.3s ease;
+    margin: 0 3px;
+    color: #333; /* Text color for input */
+}
+input[type="number"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px #dc3545;
+    border-color: #dc3545;
+}
+
+button {
+    padding: 8px 12px; /* Adjusted padding */
+    background: linear-gradient(to bottom, #93332e, #dc3545);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto; /* Let button size fit content */
+    min-width: 110px; /* Minimum width */
+    font-size: 0.9rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(147, 51, 46, 0.3);
+    text-align: center;
+}
+button:hover {
+    background: linear-gradient(to bottom, #dc3545, #93332e);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(147, 51, 46, 0.5);
+}
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(147, 51, 46, 0.3);
+}
+
+/* Go Back button specific style */
+.pushbtn {
+    padding: 6px 15px; /* Specific padding */
+    font-size: 1rem; /* Slightly larger */
+    margin: 20px auto; /* Centering and spacing */
+    display: block;
+    width: auto; /* Fit content */
+    min-width: initial; /* Override general button min-width if needed */
+}
+
+.operation-content button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%; /* Make buttons wider inside operation box */
+    max-width: 200px; /* Max width */
+}
+.diagram-utility-buttons button {
+    display: inline-block;
+    margin: 0 5px;
+    width: auto; /* Override wider buttons */
+    min-width: 110px;
+}
+.diagram-utility-buttons .sample-btn {
+    background: linear-gradient(to bottom, #007bff, #0056b3);
+}
+.diagram-utility-buttons .sample-btn:hover {
+    background: linear-gradient(to bottom, #0056b3, #007bff);
+}
+.diagram-utility-buttons .clear-btn {
+    background: linear-gradient(to bottom, #dc3545, #c82333);
+}
+.diagram-utility-buttons .clear-btn:hover {
+     background: linear-gradient(to bottom, #c82333, #dc3545);
+}
+
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Controls Area: Operation Boxes + Log */
+.controls-area {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px; /* Increased margin */
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1100px; /* Limit width */
+}
+.operation-container, .operation-log {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #dc3545;
+    border-radius: 8px;
+    padding: 15px; /* Increased padding */
+    background-color: #ffffff;
+    width: 300px; /* Slightly wider */
+    min-height: 270px; /* Use min-height instead of fixed height */
+    box-shadow: 0px 4px 15px rgba(147, 51, 46, 0.2); /* Softer shadow */
+    transition: all 0.3s ease;
+    color: #333; /* Ensure text is visible */
+}
+.operation-container:hover, .operation-log:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(147, 51, 46, 0.3); /* Adjusted hover shadow */
+}
+.operation-title, .log-title {
+    color: #93332e;
+    font-size: 1.2rem; /* Larger title */
+    font-weight: bold;
+    margin-bottom: 15px; /* More space below title */
+    text-align: center;
+    border-bottom: 1px solid #f8d7da;
+    padding-bottom: 8px;
+    flex-shrink: 0;
+}
+.operation-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    padding-top: 10px; /* More padding */
+    justify-content: center; /* Center content vertically */
+    gap: 10px; /* Add gap between elements */
+}
+.operation-row {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping inside the row */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 5px 10px; /* Row and column gap */
+    margin-bottom: 10px;
+}
+.operation-row label {
+    margin-right: 4px;
+    color: #555;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    flex-shrink: 0; /* Prevent label from shrinking */
+}
+
+/* Operation Log Specific Styling */
+.log-entries {
+    flex-grow: 1;
+    font-size: 0.85rem; /* Slightly smaller log text */
+    color: #333;
+    overflow-y: auto;
+    padding: 5px; /* Padding inside */
+    background-color: #fdf6f6; /* Slight background tint */
+    border-radius: 4px;
+    border: 1px solid #f8d7da;
+    max-height: 180px; /* Limit height */
+}
+.log-entries div {
+    padding: 3px 2px; /* Adjust padding */
+    border-bottom: 1px dotted #eee;
+}
+.log-entries div:last-child {
+    border-bottom: none;
+}
+
+/* --- List Display Area --- */
+.list-display {
+    margin-top: 0;
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.diagram-box {
+    border: 2px solid #93332e;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #ffffff;
+    width: 100%;
+    box-shadow: 0px 4px 15px rgba(147, 51, 46, 0.15); /* Adjusted shadow */
+    overflow-x: auto; /* Crucial for responsiveness */
+    position: relative;
+    margin-bottom: 15px;
+}
+.diagram {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent nodes from wrapping */
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    min-height: 100px; /* Adjusted min-height */
+    padding: 65px 15px 35px; /* Adjusted padding (top, sides, bottom) */
+    width: max-content; /* Allow diagram to grow horizontally */
+}
+
+/* Utility Buttons Below Diagram */
+.diagram-utility-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+}
+
+/* --- Node Styles (Singly Linked List) --- */
+.node {
+    border: 2px solid #93332e; border-radius: 8px;
+    width: 140px; height: 45px;
+    text-align: center; position: relative; margin: 0 10px;
+    background: linear-gradient(to bottom, #f8d7da, #e8c6c7);
+    display: flex; flex-direction: row; justify-content: center; align-items: stretch;
+    overflow: hidden; box-shadow: 0px 3px 6px rgba(147, 51, 46, 0.3);
+    transition: all 0.3s ease, background 0.5s linear;
+    flex-shrink: 0; /* Prevent nodes from shrinking */
+    color: #333; /* Text color for nodes */
+}
+.node:hover { transform: translateY(-2px); box-shadow: 0px 5px 10px rgba(147, 51, 46, 0.4); }
+.node-highlight {
+    /* Animation applied via JS class add/remove */
+    border: 2px solid #dc3545;
+    box-shadow: 0px 0px 12px #dc3545;
+    /* Use background change directly instead of keyframes for simplicity */
+    background: linear-gradient(to bottom, #f5c6cb, #e0b5b6);
+}
+.data-part, .next-part { display: flex; align-items: center; justify-content: center; font-size: 0.85rem; }
+.data-part {
+    width: 60%; font-weight: bold; font-size: 0.95rem;
+    background-color: rgba(147, 51, 46, 0.1);
+    border-right: 1px solid #93332e; /* Separator */
+}
+.next-part {
+    width: 40%; background-color: rgba(147, 51, 46, 0.05); color: #666;
+}
+
+/* --- Arrow Styles (Singly Linked List - Forward Only) --- */
+.arrow {
+    position: relative; flex: 0 0 auto;
+    width: 40px; height: 2px;
+    background-color: #93332e;
+    margin: 0 5px; align-self: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0; /* Prevent arrows from shrinking */
+}
+.arrow:after { /* Arrowhead */
+    content: ''; position: absolute;
+    right: -1px; top: -4px;
+    width: 0; height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 7px solid #93332e; /* Arrow color */
+    transition: all 0.3s ease;
+}
+.arrow:hover { background-color: #dc3545; }
+.arrow:hover:after { border-left-color: #dc3545; }
+
+/* --- Pointer Styles (Start Pointer at Head) --- */
+.pointers-container {
+    position: absolute; top: 10px; left: 0; width: 100%; height: 45px; /* Increased height */
+    display: flex; justify-content: flex-start; pointer-events: none; padding-left: 0;
+}
+.pointer {
+    display: flex; flex-direction: column; align-items: center;
+    position: absolute; top: 0; transform: translateX(-50%);
+    transition: left 0.5s ease-in-out; /* Smooth transition if position changes */
+}
+.pointer-label { color: #93332e; font-weight: bold; font-size: 0.9rem; margin-bottom: 3px; }
+.pointer-arrow { width: 2px; height: 30px; /* Longer arrow */ background-color: #93332e; position: relative; }
+.pointer-arrow::after { /* Arrowhead */
+    content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent; border-right: 6px solid transparent;
+    border-top: 8px solid #93332e;
+}
+
+/* Message for empty list */
+.empty-list-msg {
+    color: #93332e; font-style: italic; text-align: center;
+    width: 100%; padding: 30px 0; font-size: 1.1rem;
+}
+
+/* Footer */
+/* Footer is outside main container, so needs its own styling */
+footer {
+    margin-top: auto; /* Pushes footer to bottom */
+    width: 100%;
+}
+
+.dept {
+    background-color: #93332e;
+    color: #f5f6f6;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem; /* Slightly smaller */
+    line-height: 1.5;
+}
+.dept a {
+    color: #f5f6f6;
+    text-decoration: underline; /* Add underline for clarity */
+    transition: color 0.3s;
+}
+.dept a:hover {
+    color: #cdc2ae;
+    text-decoration: none;
+}
+
+
+/* --- Responsive Adjustments --- */
+
+/* Medium Screens (Tablets) */
+@media (max-width: 992px) {
+    .logo-text {
+        font-size: 1.4rem; /* Slightly smaller header text */
+    }
+    .controls-area {
+        max-width: 95%;
+        gap: 15px;
+    }
+    .operation-container, .operation-log {
+        width: 48%; /* Two columns approx */
+        min-height: 260px;
+    }
+}
+
+/* Small Screens (Tablets/Large Phones) */
+@media (max-width: 768px) {
+    #headerContent {
+        padding: 0.5rem; /* Less padding in header */
+        justify-content: center; /* Center items if they wrap */
+    }
+    .logo-text {
+        font-size: 1.2rem; /* Smaller header text */
+        text-align: center; /* Center text if it wraps below logo */
+        flex-basis: 100%; /* Allow text to take full width if needed */
+        margin-top: 5px;
+    }
+    #headerContent .img img {
+        max-height: 50px; /* Smaller logo */
+    }
+    .container {
+        margin: 15px auto;
+        padding: 10px;
+    }
+    .container h1 {
+        font-size: clamp(1.6rem, 5vw, 2rem);
+        margin-bottom: 20px;
+    }
+    .controls-area {
+        flex-direction: column; /* Stack controls vertically */
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+    .operation-container, .operation-log {
+        width: 90%; /* Take most of the width */
+        max-width: 450px; /* Limit max width */
+        min-height: auto; /* Height adjusts to content */
+        height: auto;
+    }
+    .operation-log {
+        min-height: 150px; /* Minimum height for log */
+    }
+    .log-entries {
+        max-height: 150px; /* Adjust max height */
+    }
+    .operation-row {
+        justify-content: space-around; /* Space out items in row */
+    }
+    input[type="number"] {
+        width: 75px; /* Adjust input width */
+    }
+}
+
+/* Very Small Screens (Phones) */
+@media (max-width: 576px) {
+    html {
+        font-size: 15px; /* Slightly adjust base font size */
+    }
+    .logo-container {
+        flex-direction: column; /* Stack logo and text */
+        gap: 0.5rem;
+        align-items: center;
+        width: 100%; /* Take full width */
+    }
+    .logo-text {
+        font-size: 1.1rem; /* Even smaller text */
+    }
+    .container h1 {
+        font-size: clamp(1.4rem, 5vw, 1.8rem);
+    }
+    .operation-container, .operation-log {
+        width: 95%; /* Slightly wider */
+        padding: 12px;
+    }
+    .operation-title, .log-title {
+        font-size: 1.1rem;
+    }
+    button {
+        font-size: 0.85rem;
+        min-width: 100px;
+        padding: 7px 10px;
+    }
+     .operation-content button {
+        width: 95%;
+        max-width: 180px;
+    }
+    input[type="number"] {
+        width: 65px; /* Smaller input */
+        padding: 5px 8px;
+    }
+    .operation-row label {
+        font-size: 0.85rem;
+    }
+
+    /* Adjust diagram elements */
+    .diagram {
+        padding: 55px 10px 30px;
+        min-height: 90px;
+    }
+    .node {
+        width: 120px; height: 40px; margin: 0 8px;
+    }
+    .data-part { width: 60%; font-size: 0.85rem; }
+    .next-part { width: 40%; font-size: 0.75rem;}
+    .arrow { width: 30px; margin: 0 4px; }
+    .arrow:after {
+        border-left-width: 6px; border-top-width: 4px; border-bottom-width: 4px; top: -3px;
+    }
+    .pointers-container { top: 8px; height: 40px;}
+    .pointer-label { font-size: 0.8rem; }
+    .pointer-arrow { height: 22px;}
+    .pointer-arrow:after {
+        bottom: -6px; border-top-width: 6px; border-left-width: 5px; border-right-width: 5px;
+    }
+    .diagram-utility-buttons { gap: 8px; }
+    .dept { font-size: 0.85rem; }
+}

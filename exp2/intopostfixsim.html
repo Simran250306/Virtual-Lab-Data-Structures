@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infix to Postfix Simulator</title>
+    <link rel="stylesheet" href="../exp2/intopostfixsim.css">
+</head>
+
+<body>
+    <header>
+        <div id="headerContent">
+            <!-- Wrapper for content -->
+            <div class="logo-container">
+                <!-- Logo container -->
+                <div class="img">
+                    <img src="../media/somaiya.png" alt="Somaiya Logo" />
+                </div>
+                <div class="logo-text">Virtual Lab | Data Structures | Infix to Postfix</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Infix to Postfix Converter</h1>
+            <p>Note: After entering the expression, first click on "Convert", and then convert on "Next Step" for getting each step.</p>
+            <div class="main-content-wrapper">
+                <!-- flex container for three boxes -->
+
+                <div class="input-and-expression">
+                    <!-- first two boxes -->
+                    <div class="input-block">
+                        <input type="text" id="infix-input" placeholder="Enter infix expression" />
+                        <button onclick="convertToPostfix()">Convert</button>
+                        <button onclick="nextStep()">Next Step</button>
+                    </div>
+                    <div class="final-postfix-block">
+                        <h2>Final Postfix Expression:
+                            <p id="final-postfix"></p>
+                        </h2>
+                    </div>
+                    <button id="clearbtn">Clear</button>
+                </div>
+
+                <div class="conversion-block">
+                    <table id="conversion-table">
+                        <thead> <!-- Wrap the header row in a <thead> tag -->
+                            <tr>
+                                <th>Input</th>
+                                <th>Stack</th>
+                                <th>Postfix Expression</th>
+                                <th>Operation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Table body content goes here -->
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div id="popup-container" >
+                <div id="popup">
+                    <h2 id="popup-message"></h2><br>
+                        <button id="pushbtn" class="pushbtn" href="intopostfix.html">Go Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        // This function will be available even if the DOM is not fully loaded.
+        function stackToString(stack){
+            if(stack.length>0){
+                return stack.join(" ") + " \u2190 top"; //Arrow unicode
+            }
+            return "";
+        }
+        function clearConversion() {
+            // Clear the input field
+            const infixInput = document.getElementById("infix-input");
+            if (infixInput) infixInput.value = "";
+
+            // Clear the stack and postfix expression (assuming these are global)
+            stack = [];
+            postfixExpression = [];
+            step = 0; // Reset step too!
+
+            // Clear the table content
+            const conversionTable = document.getElementById("conversion-table");
+            if (conversionTable) {
+                conversionTable.innerHTML = `
+              <tr>
+                <th>Input</th>
+                <th>Stack</th>
+                <th>Postfix Expression</th>
+                <th>Operation</th>
+              </tr>
+            `;
+            }
+
+            // Clear the final postfix expression
+            const finalPostfix = document.getElementById("final-postfix");
+            if (finalPostfix) finalPostfix.textContent = ""; // Ensure final postfix is cleared
+
+            // Call scrollToBottom if it exists (defensive check)
+            if (typeof scrollToBottom === 'function') {
+                scrollToBottom();
+            }
+        }
+    </script>
+    <script src="../exp2/intopostfixsim.js"></script>
+    <footer>
+        <div class="dept">
+            <p>Department of Computer Engineering, KJSIT
+                <br> Developed by : Simran Devrukhkar, Mahi Ghevariya, Aaryan Ghori
+                <br> Guided by : <a href="https://kjsit.somaiya.edu.in/en/view-member/220291/">Prof. Pradnya Bhangale</a>, 
+                <a href="https://kjsit.somaiya.edu.in/en/view-member/220292/">Prof. Priyanka Deshmukh</a>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,375 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scrollbar-color: #933 #fff;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: url('../media/bgimg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: "Times New Roman", sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+header {
+    background-color: #93332e;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem;
+}
+#headerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+.logo-text {
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 1rem;
+}
+.img img {
+    max-height: 100px;
+    width: auto;
+}
+.container {
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    align-items: stretch;
+    width: 60%;
+    margin: 20px auto;
+    height: auto; /* Allow dynamic height */
+}
+.stack-section, .functions-section, .actions-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    background-color:#93332e ;
+    border: 2px solid #f5f6f6;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 30%;
+    margin: 10px;
+    color: #ffffff;
+}
+/* Functions Section & Buttons */
+.functions-section {
+    flex-direction: column;
+    align-items: center;
+}
+.functions-section .function-box {
+    margin-bottom: 5px;
+    width: 80%; /* Make function boxes less wide*/
+    box-sizing: border-box;
+}
+/* The button container */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Align items to stretch the full width*/
+    width: 100%; /* Ensure the buttons occupy all the width available */
+}
+button {
+    padding: 8px 16px;  /* Shorter button padding */
+    background-color:#dc3545;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px; /* Smaller button font size */
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%; /* Button occupies the container width */
+    box-sizing: border-box; /* Make the padding and border included in the button's total width. */
+    margin-bottom: 5px;
+    display: inline-flex;
+}
+button:hover {
+    background-color: pink;
+}
+/* Ensure the INPUT box takes up full width, has same style */
+input[type="text"], input[type="number"] {
+    padding: 8px 16px; /* same padding as button*/
+    border: 2px solid #dc3545 ;
+    font-size: 18px; /* same font size as button */
+    font-family:  'Times New Roman', Times, serif;
+    width: 100%; /* Ensure input box is the same width as the button*/
+    box-sizing: border-box;  /* Include padding and border in the width */
+    margin-bottom: 5px;
+}
+.stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align items to the left */
+    justify-content: flex-end; /* Align content to the bottom */
+    height: 300px; /* Fixed height for the stack */
+    width: 200px;
+    padding-bottom: 10px; /* Space for the top pointer */
+    position: relative;
+    padding-left: 60px; /* Shift stack boxes right */
+}
+.stack-box {
+    width: 150px;
+    height: 40px;
+    border: 2px solid #dc3545;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color:#320509 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3px;
+    font-size: 20px;
+    position: relative;
+    align-self: center; /* Center stack boxes horizontally */
+    margin: 3px 0; /* Adjust margin for vertical centering */
+   
+}
+/* Top pointer */
+.top-pointer {
+    position: absolute;
+    right: 150px; /* Position to the right of the stack box */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: white;
+    transition: top 0.3s ease;
+    display: none;
+    font-weight: bolder; /* Make the arrow bolder */ 
+    font-size: 28px; /* Slightly larger arrow */
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Vertically center the text and arrow */
+}
+.top-pointer::before {
+  content: " Top"; /* Text at the tail side of the arrow */
+  font-size: 18px;
+  font-weight: normal;
+   margin-right: 2px; /* Add space between text and arrow */
+}
+.actions-box {
+    margin-top: 30px;
+    width: 100%;
+    height: 300px; /* Adjust height as needed */
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 10px;
+    font-size: 18px;
+    white-space: pre-line;
+    color: white;
+    overflow-y: auto; /* Enable vertical scrolling */
+    box-sizing: border-box;
+    scrollbar-color: #933 #fff;
+}
+
+.pushbtn,.resetbtn {
+    padding: 6px 12px; /* Smaller "Go Back" button */
+    font-size: 18px;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    width: auto;
+    display: inline-flex; /* Use inline-flex to keep them in a line */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    display: inline-flex; /* Use inline-flex to keep them in a line */
+}
+
+.element-input {
+    font-size: 18px; /* Input element font size to 18px */
+    font-family: 'Times New Roman', Times, serif;
+}
+.peek-box {
+    margin-top: 3px;
+    padding: 5px;
+    border: 2px solid #93332e;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 18px;
+    min-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+@keyframes slide-in-anim {
+    20% {
+        opacity: 0;
+    }
+    60% {
+        transform: translateX(-45%);
+    }
+    75% {
+        transform: translateX(-52%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%);
+    }
+}
+/* Footer */
+.footer {
+    background-color: #f5f6f6;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+.footer h1 {
+    font-size: 1.8rem;
+    color: #dc3545;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+.footer h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    color: #dc3545;
+    margin: 0.5rem 0;
+}
+.footer h2 a {
+    text-decoration: none;
+    color: #dc3545;
+    transition: color 0.3s;
+}
+.footer h2 a:hover {
+    color: #93332e;
+}
+.footer p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    color: black;
+    margin: 0.5rem 0;
+}
+/* Box */
+.box {
+    margin: 2rem auto;
+    width: 80%;
+    text-align: center;
+}
+.box ul {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: #dc3545;
+    padding-left: 2rem;
+    text-align: left;
+    list-style-type: disc;
+}
+/* Image */
+.image img {
+    max-width: 50%;
+    height: auto;
+    margin: 2rem auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Department */
+.dept {
+    background-color: #93332e;
+    color: #f5f6f6;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+}
+.dept a {
+    color: #f5f6f6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.dept a:hover {
+    color: #cdc2ae;
+}
+/* Image */
+.img img {
+    max-width: 50%;
+    height: auto;
+    background-color: #f5f6f6;
+    padding: 0.2rem;
+    margin: 0.5rem auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack sections vertically on small screens */
+        align-items: center; /* Center sections horizontally */
+        width: 90%; /* Take up more screen width */
+        height: auto; /* Auto-adjust height */
+    }
+    .stack-section,
+    .functions-section,
+    .actions-section {
+        color: #ffffff;
+        width: 90%; /* Make sections wider */
+        margin: 10px 0; /* Top and bottom margin */
+        height:auto;
+        min-width: auto; /* Adjust width to content */
+    }
+    .functions-section .function-box {
+        width: 100%; /* Full width function boxes */
+    }
+    .button-container {
+        width: 100%;
+    }
+    button {
+        width: 100%; /* full-width buttons */
+        font-size: 16px; /* Larger text on smaller screens */
+    }
+    input[type="text"], input[type="number"] {
+        width: 100%; /* full-width input */
+        font-size: 16px; /* Larger text on smaller screens */
+    }
+    .actions-box {
+        width: 100%;
+        font-size: 14px;
+    }
+    .peek-box {
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .element-input {
+        font-size: 14px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .stack {
+        width: 100%; /* Full width stack container */
+        align-items: center; /* Center stack boxes horizontally */
+        margin: 3px 0; /* Adjust margin for vertical centering */
+    }
+    .stack-box {
+        width: 80%; /* Full width stack boxes */
+        margin: 3px 0; /* Reduce horizontal margins */
+        align-self: stretch; /* Stretch stack boxes horizontally */
+       
+    }
+    .top-pointer {
+        right: 10px; /* Adjust top pointer position */
+    }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binary Tree Simulator</title>
+  <link rel="stylesheet" href="bstsim.css">
+</head>
+
+<body>
+  <header>
+    <div id="headerContent">
+      <!-- Wrapper for content -->
+      <div class="logo-container">
+        <!-- Logo container -->
+        <div class="img">
+          <img src="../media/somaiya.png" alt="Somaiya Logo" />
+        </div>
+        <div class="logo-text">Virtual Lab | Data Structures | Binary Tree</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="box">
+      <div class="content">
+        <h1>Binary Tree Simulation</h1>
+
+        <div class="button-container">
+          <input type="number" id="element-input" placeholder="Element to insert">
+          <button onclick="insert()">Insert</button>
+
+          <input type="number" id="delete-input" placeholder="Element to delete">
+          <button onclick="deleteNode()">Delete</button>
+
+          <input type="number" id="search-input" placeholder="Element to search">
+          <button onclick="search()">Search</button>
+        </div>
+        
+        <div class="tree-operation-wrapper">
+          <div class="tree-wrapper">
+            <h3>Binary Tree:</h3>
+            <div class="tree-container">
+              <svg id="tree" class="tree" width="1200" height="800" style="overflow: hidden;">
+                <!-- Tree nodes will be dynamically added here -->
+              </svg>
+            </div>
+          </div>
+
+          <div class="operation-container">
+            <h3>Operations:</h3>
+            <div class="action-text" id="operation-box"></div>
+            <!-- Operation box -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <button class="pushbtn" onclick="goBack()">Go Back</button>
+  </main>
+
+  <footer>
+    <div class="dept">
+      <p>Department of Computer Engineering, KJSIT
+        <br> Developed by : Simran Devrukhkar, Mahi Ghevariya, Aaryan Ghori
+        <br> Guided by : 
+        <a href="https://kjsit.somaiya.edu.in/en/view-member/220291/">Prof. Pradnya Bhangale</a>, <a href="https://kjsit.somaiya.edu.in/en/view-member/220292/">Prof. Priyanka Deshmukh</a>
+      </p>
+    </div>
+  </footer>
+  <script src="bstsim.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Simulator</title>
+    <link rel="stylesheet" href="graphsim.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <div id="headerContent">  <!-- Wrapper for content -->
+            <div class="logo-container"> <!-- Logo container -->
+                <div class="img">
+                    <!-- Make sure this path is correct relative to your HTML file -->
+                    <img src="../media/somaiya.png" alt="Somaiya Logo"/>
+                </div>
+                <div class="logo-text">Virtual Lab | Data Structures | Graph</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Graph Simulator Content -->
+        <h1>Graph Simulator</h1>
+        <div class="drag-note">
+            Note: Click and drag nodes to move them.
+        </div>
+        <div class="container">
+            <!-- Left Controls -->
+            <div class="controls">
+                <h2>Controls</h2>
+                <div class="control-group">
+                    <label for="node-name">Node Name:</label>
+                    <input type="text" id="node-name" placeholder="Enter node name">
+                    <button id="add-node">Add Node</button>
+                </div>
+
+                <div class="control-group">
+                    <label for="delete-node-name">Delete Node:</label>
+                    <input type="text" id="delete-node-name" placeholder="Enter node name">
+                    <button id="delete-node">Delete Node</button>
+                </div>
+
+                <div class="control-group">
+                    <label for="connect-node1">Connect Nodes:</label>
+                    <input type="text" id="connect-node1" placeholder="First node">
+                    <input type="text" id="connect-node2" placeholder="Second node">
+                    <button id="connect-nodes">Connect Nodes</button>
+                </div>
+            </div>
+
+            <!-- Center Canvas -->
+            <div class="canvas-container">
+                <canvas id="graph-canvas" width="700" height="550"></canvas>
+            </div>
+
+            <!-- Right Log -->
+            <div class="log">
+                <h3>Operations Log</h3>
+                <ul id="log-list"></ul>
+            </div>
+        </div>
+         <button class="pushbtn" onclick="goBack()">Go Back</button> 
+
+    </main>
+
+    <footer>
+        <div class="dept">
+            <p>Department of Computer Engineering, KJSIT
+                <br>
+                Developed by : Simran Devrukhkar, Mahi Ghevariya, Aaryan Ghori
+                <br>
+                Guided by : <a href="https://kjsit.somaiya.edu.in/en/view-member/220291/">Prof. Pradnya Bhangale</a>, <a href="https://kjsit.somaiya.edu.in/en/view-member/220292/">Prof. Priyanka Deshmukh</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="graphsim.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>

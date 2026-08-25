@@ -1,0 +1,479 @@
+/* Reset (Optional, but recommended) */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scrollbar-color: #933 #fff;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../media/bgimg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: "Times New Roman", sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #93332e;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+#headerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.logo-text {
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 1rem;
+}
+
+.img img {
+    max-height: 100px;
+    width: auto;
+}
+
+.pushbtn {
+    padding: 6px 12px;
+    /* Smaller "Go Back" button */
+    font-size: 18px;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    width: auto;
+    /*Adjust to the content*/
+}
+
+button {
+    width: auto;
+    /* full-width buttons */
+    font-size: 16px;
+    /* Larger text on smaller screens */
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Footer */
+
+.footer {
+    background-color: #f5f6f6;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer h1 {
+    font-size: 1.8rem;
+    color: #dc3545;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.footer h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    color: #dc3545;
+    margin: 0.5rem 0;
+}
+
+.footer h2 a {
+    text-decoration: none;
+    color: #dc3545;
+    transition: color 0.3s;
+}
+
+.footer h2 a:hover {
+    color: #93332e;
+}
+
+.footer p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    color: black;
+    margin: 0.5rem 0;
+}
+
+/* Box */
+
+.box {
+    margin: 2rem auto;
+    width: 80%;
+    text-align: center;
+}
+
+.box ul {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: #dc3545;
+    padding-left: 2rem;
+    text-align: left;
+    list-style-type: disc;
+}
+
+/* Image */
+
+.image img {
+    max-width: 50%;
+    height: auto;
+    margin: 2rem auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Department */
+
+.dept {
+    background-color: #93332e;
+    color: #f5f6f6;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.dept a {
+    color: #f5f6f6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.dept a:hover {
+    color: #cdc2ae;
+}
+
+/* Image */
+
+.img img {
+    max-width: 50%;
+    height: auto;
+    background-color: #f5f6f6;
+    padding: 0.2rem;
+    margin: 0.5rem auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Decimal to Binary Converter Styles */
+
+.container {
+    margin: 20px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+    color: #933;
+}
+
+h1,
+h2 {
+    color: #93332e;
+}
+
+input,
+button {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #6e2521;
+    color: white; /* Change text to black */
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+    color: white; /* Change text to black */
+}
+
+button:hover:not(:disabled) {
+    background-color: #93332e;
+}
+
+.simulation-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.stack-container,
+.operation-container {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.stack {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #ddd;
+    padding: 10px;
+    border: 2px solid #aaaaaa;
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 200px;
+    transition: height 0.3s ease;
+}
+
+.stack-item {
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    background-color: #93332e;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.operations {
+    background-color: #eee;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    transition: height 0.3s ease;
+    font-size: 15px;
+    color: #bb433c;
+    font-size: 20px;
+}
+
+.operation-column {
+    flex: 1;
+    margin: 0 10px;
+    text-align: left;
+}
+
+.output-container {
+    margin-top: 30px;
+    font-size: 20px;
+    width: 250px;
+    height: 75px;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+}
+
+.input-section input {
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    border: 2px solid #93332e;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+input[type="number"] {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #93332e;
+    color: white; /* Change text to black */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 15px;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #dc3545;
+}
+
+.conversion-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 25px 0;
+}
+
+.process-box,
+.operation-box,
+.stack-box,
+.binary-output {
+    width: 40%;
+    padding: 15px;
+    background-color: #ffcbd1;
+    border: 1px solid #ffcbd1;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: 20px;
+    color:black; /* Change text to black */
+}
+
+
+
+button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+    color: white; /* Change text to black */
+}
+
+/* Table Styles */
+#division-visualization table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    /* Add margin for spacing */
+}
+
+#division-visualization th,
+#division-visualization td {
+    border: 1px solid #933;
+    /* Add borders to table cells */
+    padding: 5px;
+    text-align: center;
+    font-size: 16px;  /* Reduced font size */
+    color: black; /* Change text to black */
+}
+
+#division-visualization th {
+    background-color: #f2f2f2;
+    /* Style table header */
+    color: black; /* Change text to black */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .conversion-boxes {
+        flex-direction: column;
+        /* Stack conversion boxes vertically */
+    }
+
+    .process-box,
+    .operation-box,
+    .stack-box,
+    .binary-output {
+        width: 100%;
+        /* Make conversion boxes full width */
+        margin: 10px 0;
+        /* Adjust margin for spacing */
+    }
+
+    /* Increase process box width */
+    .process-box {
+        width: 100%;
+    }
+
+    /* Adjustments for smaller screens */
+    .input-section input {
+        width: 100%;
+        max-width: none;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #decimal-input,
+    button {
+        font-size: 1.2em;
+        padding: 8px;
+    }
+
+    th,
+    td {
+        font-size: 0.8em;
+        padding: 6px;
+    }
+
+    #binary-result,
+    #operation-log {
+        font-size: 0.9em;
+    }
+
+    .stack-element {
+        font-size: 0.8em;
+    }
+
+    .container {
+        margin: 0;       /* Remove margins to allow full-width */
+        padding: 10px;   /* Use reduced padding */
+        border-radius: 0;/* Remove border radius if desired */
+        box-shadow: none;/* Remove box shadow for an edge-to-edge feel */
+        width: 100%;
+        color: #933;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.2em;
+    }
+
+    #decimal-input,
+    button {
+        font-size: 1.2em;
+    }
+
+    th,
+    td {
+        font-size: 0.7em;
+        padding: 4px;
+        font-size: 14px; /* Further reduce font size on smaller screens */
+    }
+
+    #binary-result,
+    #operation-log {
+        font-size: 20px;
+    }
+
+    .stack-element {
+        font-size: 20px;
+    }
+}

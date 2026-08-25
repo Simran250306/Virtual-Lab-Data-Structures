@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacks</title>
+    <link rel="stylesheet" href="../theory.css">
+    <script>
+        window.onscroll = function() {myFunction()};
+    
+        var header = document.getElementById("fixedNav");
+        var sticky = header.offsetTop;
+    
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+        </script>
+</head>
+
+<body>
+    <header>
+        <div id="headerContent">  <!-- Wrapper for content -->
+            <div id="menuToggle">&#9776;</div>  <!-- Menu Toggle Button -->
+            <div class="logo-container"> <!-- Logo container -->
+                <div class="img">
+                    <img src="../media/somaiya.png" alt="Somaiya Logo"/>
+                </div>
+                <div class="logo-text">Virtual Lab | Data Structures | Stacks</div>
+            </div>
+        </div>
+    </header>
+
+    <aside id="sidebar">
+        
+        <ul>
+            <li><a href="../home/home.php">Home</a></li>
+            <li><a href="../pdf/DATA STRUCTURES E-BOOK.pdf" target="_blank">E-Book</a></li>
+            <li><a href="../theory/theory.php">Theory</a></li>
+            <li>
+                <a href="#">Labs</a>
+                <ul class="dropdown">
+                    <li><a href="../exp1stack/stack.html">Experiment 1: Stacks</a></li>
+                    <hr/>
+                    <li><a href="../exp2/intopostfix.html">Experiment 2: Infix to postfix</a></li>
+                    <hr/>
+                    <li><a href="../exp3/exp3.html">Experiment 3: Applications of stack</a></li>
+                    <hr/>
+                    <li><a href="../exp3postfixeval/postfix.html">Postfix Evaluation</a></li>
+                    <hr/>
+                    <li><a href="../exp3zparenthesis/parenthesis.html">Parenthesis Checker</a></li>
+                    <hr/>
+                    <li><a href="../exp4linearqueue/lqueue.html">Experiment 4: Linear Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp5circularqueue/cqueue.html">Experiment 5 : Circular Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp5dequeue/dequeue.html">Double Ended Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp6singlyll/singlyll.html">Experiment 6: Singly Linked List</a></li>
+                    <hr/>
+                    <li><a href="../exp7doublyll/doublyll.html">Experiment 7: Doubly Linked List</a></li>
+                    <hr/>
+                    <li><a href="../exp8bst/bst.html">Experiment 8: Binary Search Tree</a></li>
+                    <hr/>
+                    <li><a href="../exp8zavltree/avltree.html">AVL Tree</a></li>
+                    <hr/>
+                    <li><a href="../exp9graph/graph.html">Graph </a></li>
+                </ul>
+            </li>
+            <li><a href="../about/about.php">About Us</a></li>
+            <li><a href="../feedback/feedbackpg.php">Feedback</a></li>
+            <li><a href="../login/logout.php">Logout</a></li></ul>
+        <div id="labContentContainer"></div>
+    </aside>
+
+    <main>
+        <div class="content">
+            <!-- Fixed Navigation (Added here) -->
+        <nav id="fixedNav">
+            <a href="#aimSection">Aim</a>
+            <a href="#theorySection">Theory</a>
+            <a href="#algorithmSection">Algorithm</a>
+            <a href="../exp1stack/stacksim.html">Simulation</a>
+            <a href="../exp1stack/stackquiz.html">Quiz</a>
+            <a href="../feedback/1stackfb.php">Feedback</a>
+        </nav>
+
+            <div id="aimSection">
+                <p><b>Aim:</b>
+                    <div class='task'>Implement Stack ADT using an array.</div></p>
+            </div>
+
+            <div id="theorySection">
+                <p><b>Theory:</b>
+                    <div class='task'>
+                      Stack can be represented using an array. Stack is open at one end and
+                      operations can be performed on a single end. We can have different primitive
+                      operations on Stack Data Structure.
+                      <ol type="A">
+                        <li><strong>Push Operation on Stack :</strong></li>
+                        We have declared data array in the above declaration. Whenever we add any element in the
+                        „data‟ array then it will be called as <i>“Pushing Data on the Stack”.</i>
+                        <br>
+                        Suppose “top” is a pointer to the top element in a stack. After every push operation,
+                        the value of “top” is incremented by one.<br>
+                        <img src="../media/push.jpg" alt="Push Operation">
+                        <li><strong>Pop Operation on Stack :</strong></li>
+                        Whenever we try to remove an element from the stack then the operation is
+                        called <i>POP Operation on Stack.</i><br>
+                        <img src="../media/pop.jpg" alt="Pop Operation">
+                      </ol>
+                    </div>
+                </p>
+            </div>
+
+            <div id="algorithmSection">
+                <p>
+                    <b>Algorithm: </b>
+                    <div class='task'>
+                        <ol type="A">
+                            <li><strong>Push():</strong></li>
+                            <i>Description:</i> Here STACK is an array with MAX locations. TOP points to the top most
+                              element and ITEM is
+                              the value to be inserted.
+                            <div class="task2">
+                                <ol>
+                                    <li>If (TOP == MAX-1) Then [Check for overflow]</li>
+                                    <li>Print: Overflow </li>
+                                    <li>Else</li>
+                                    <li>Set TOP = TOP + 1 [Increment TOP by 1]</li>
+                                    <li> STACK[TOP] = ITEM [Assign ITEM to top of STACK]</li>
+                                      <li>Print: ITEM</li>
+                                      inserted [End of If]</li>
+                                      <li> Exit</li>
+                                  </ol>
+                            </div>
+                            <li><strong>Pop():</strong></li>
+                            <i>Description:</i> Here STACK is an array with MAX locations. TOP points to the top most
+                            element.
+                            <div class="task2">
+                                <ol>
+                                    <li>If (TOP == -1) Then [Check for underflow]</li>
+                                      <li>Print: Underflow</li>
+                                      <li>>Else</li>
+                                      <li>Set ITEM = STACK[TOP]<br> [Assign top of STACK to ITEM]</li>
+                                      <li>Set TOP = TOP - 1<br> [Decrement TOP by 1]</li>
+                                      <li>Print: ITEM deleted<br> [End of If]</li>
+                                      <li> Exit</li>
+                                  </ol>
+                            </div>
+                          </ol>
+                    </div>
+            </div>
+
+                <p><b>Simulation:</b>
+                    <div class='task button-task'>
+                      <a href="stacksim.html"><button>Simulation of Stack</button></a>
+                </div>
+
+                <p><b>Quiz:</b>
+                    <div class='task button-task'>
+                      <a href="stackquiz.html"><button>Attempt Quiz</button></a>
+                  </div>
+
+                  <p><b>Feedback:</b>
+                    <div class='task button-task'>
+                      <a href="../feedback/1stackfb.php"><button>Feedback</button></a>
+                  </div>
+
+
+        </div>
+        <button id="topBtn" onclick="scrollToTop()">↑</button>
+
+    </main>
+
+    <footer>
+        <div class="dept">
+            <p>Department of Computer Engineering, KJSIT
+                <br>
+                Developed by : Simran Devrukhkar, Mahi Ghevariya, Aaryan Ghori
+                <br>
+                Guided by : <a href="https://kjsit.somaiya.edu.in/en/view-member/220291/">Prof. Pradnya Bhangale</a>, <a href="https://kjsit.somaiya.edu.in/en/view-member/220292/">Prof. Priyanka Deshmukh</a>
+            </p>
+        </div>
+    </footer>
+
+     <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const sidebar = document.getElementById("sidebar");
+
+        menuToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("show");
+        });
+
+        document.addEventListener("click", (event) => {
+            const isClickInside = sidebar.contains(event.target) || menuToggle.contains(event.target);
+            if (!isClickInside) {
+                sidebar.classList.remove("show");
+            }
+        });
+
+        window.onscroll = function () {
+            showScrollButton();
+        };
+        
+        function showScrollButton() {
+            let button = document.getElementById("topBtn");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                button.style.display = "block"; // Show when scrolled down
+            } else {
+                button.style.display = "none"; // Hide when at the top
+            }
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        
+    </script>
+</body>
+</html>
+
+

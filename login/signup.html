@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DS Virtual Lab Signup</title>
+  <link rel="stylesheet" href="login.css" />
+  <style>
+    .role-toggle {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+    .role-toggle button {
+      background-color: rgba(255, 255, 255, 0.4);
+      border: 1px solid #933;
+      color: #933;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .role-toggle button.active {
+      background-color: #933;
+      color: white;
+    }
+    .role-form {
+      display: none;
+    }
+    .role-form.active {
+      display: block;
+    }
+    .input-group select {
+      background-color: rgba(255, 255, 255, 0.75);
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid rgba(200, 200, 200, 0.5);
+      border-radius: 6px;
+      font-size: 15px;
+      color: #333;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>DS Virtual Lab Signup</h1>
+
+    <div class="role-toggle">
+      <button id="studentSignupBtn" class="active">Student</button>
+      <button id="facultySignupBtn">Faculty</button>
+    </div>
+
+    <form id="studentSignupForm" class="role-form active" action="/login/student/signup.php" method="post">
+      <div class="input-group">
+        <label for="student-name">Full Name</label>
+        <input type="text" id="student-name" name="fullname" placeholder="Your full name" required />
+      </div>
+      <div class="input-group">
+        <label for="student-username">Username</label>
+        <input type="text" id="student-username" name="username" placeholder="Choose a username" required />
+      </div>
+      <div class="input-group">
+        <label for="student-email">Email</label>
+        <input type="email" id="student-email" name="email" placeholder="Your email address" required />
+      </div>
+      <div class="input-group">
+        <label for="student-college">College</label>
+        <input type="text" id="student-college" name="college" placeholder="Your College Name" required />
+      </div>
+      <div class="input-group">
+        <label for="student-dept">Department</label>
+        <input type="text" id="student-dept" name="department" placeholder="Department" required />
+      </div>
+      <div class="input-group">
+        <label for="student-password">Password</label>
+        <input type="password" id="student-password" name="password" placeholder="Create a password" required />
+      </div>
+      <div class="input-group">
+        <label for="student-security-question">Security Question</label>
+        <select id="student-security-question" name="security_question" required>
+          <option value="pet_name">What is your first pet's name?</option>
+          <option value="mother_maiden">What is your mother's maiden name?</option>
+          <option value="birth_city">In which city were you born?</option>
+          <option value="favourite_teacher">Who was your favorite school teacher?</option>
+          <option value="favourite_food">What is your favorite food?</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="student-security-answer">Security Answer</label>
+        <input type="text" id="student-security-answer" name="security_answer" required />
+      </div>
+      <button type="submit" class="login-button">Sign Up</button>
+    </form>
+
+    <form id="facultySignupForm" class="role-form" action="../login/faculty/signup.php" method="post">
+      <div class="input-group">
+        <label for="faculty-name">Full Name</label>
+        <input type="text" id="faculty-name" name="name" placeholder="Your full name" required />
+      </div>
+      <div class="input-group">
+        <label for="faculty-username">Username</label>
+        <input type="text" id="faculty-username" name="username" placeholder="Choose a username" required />
+      </div>
+      <div class="input-group">
+        <label for="faculty-email">Email</label>
+        <input type="email" id="faculty-email" name="email" placeholder="Your email address" required />
+      </div>
+      <div class="input-group">
+        <label for="faculty-password">Password</label>
+        <input type="password" id="faculty-password" name="password" placeholder="Create a password" required />
+      </div>
+      <div class="input-group">
+        <label for="faculty-security-question">Security Question</label>
+        <select id="faculty-security-question" name="security_question" required>
+          <option value="pet_name">What is your first pet's name?</option>
+          <option value="mother_maiden">What is your mother's maiden name?</option>
+          <option value="birth_city">In which city were you born?</option>
+          <option value="favourite_teacher">Who was your favorite school teacher?</option>
+          <option value="favourite_food">What is your favorite food?</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="faculty-security-answer">Security Answer</label>
+        <input type="text" id="faculty-security-answer" name="security_answer" required />
+      </div>
+      <div class="input-group">
+        <label for="faculty-code">Faculty Code</label>
+        <input type="text" id="faculty-code" name="faculty_code" placeholder="Enter faculty code" required />
+      </div>
+      <button type="submit" class="login-button">Sign Up as Faculty</button>
+    </form>
+
+    <div class="extra-links">
+      <a href="login.html">Already have an account? Login</a>
+    </div>
+  </div>
+
+  <script>
+    const studentSignupBtn = document.getElementById('studentSignupBtn');
+    const facultySignupBtn = document.getElementById('facultySignupBtn');
+    const studentSignupForm = document.getElementById('studentSignupForm');
+    const facultySignupForm = document.getElementById('facultySignupForm');
+
+    studentSignupBtn.addEventListener('click', () => {
+      studentSignupBtn.classList.add('active');
+      facultySignupBtn.classList.remove('active');
+      studentSignupForm.classList.add('active');
+      facultySignupForm.classList.remove('active');
+    });
+
+    facultySignupBtn.addEventListener('click', () => {
+      facultySignupBtn.classList.add('active');
+      studentSignupBtn.classList.remove('active');
+      facultySignupForm.classList.add('active');
+      studentSignupForm.classList.remove('active');
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const role = urlParams.get('role');
+
+    if (role === 'faculty') {
+      facultySignupBtn.click();
+    }
+  </script>
+</body>
+</html>

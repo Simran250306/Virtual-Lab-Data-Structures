@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parenthesis Checker Simulator</title>
+    <link rel="stylesheet" href="parenthesissim.css">
+</head>
+
+<body>
+    <header>
+        <div id="headerContent">
+            <!-- Wrapper for content -->
+            <div class="logo-container">
+                <!-- Logo container -->
+                <div class="img">
+                    <img src="../media/somaiya.png" alt="Somaiya Logo" />
+                </div>
+                <div class="logo-text">Virtual Lab | Data Structures | Parenthesis Checker</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Parenthesis Checker</h1>
+            <p>Note: Click on "Chcek" once, and then click on "Next step" to get further steps.</p>
+            <div class="main-content-wrapper">
+                <!-- flex container for three boxes -->
+
+                <div class="input-and-expression">
+                    <!-- first two boxes -->
+                    <div class="input-block">
+                        <input type="text" id="expression-input" placeholder="Enter expression" />
+                        <button onclick="checkParentheses()">Check</button>
+                        <button onclick="nextStep()">Next Step</button>
+                    </div>
+                    <div class="final-postfix-block">
+                        <h2>Result:
+                            <p id="final-result"></p>
+                        </h2>
+                    </div>
+                    <button id="clearbtn">Clear</button>
+                </div>
+
+                <div class="conversion-block">
+                    <table id="checking-table">
+                        <thead>
+                            <tr>
+                                <th>Input</th>
+                                <th>Stack</th>
+                                <th>Operation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Table body content goes here -->
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div id="popup-container">
+                <div id="popup">
+                    <h2 id="popup-message"></h2><br>
+                    <button id="pushbtn" class="pushbtn" onclick="goBack()">Go Back</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function stackToString(stack) {
+            if (stack.length > 0) {
+                return stack.join(" ") + " \u2190 top"; //Arrow unicode
+            }
+            return "";
+        }
+
+        function clearConversion() {
+            // Clear the input field
+            const expressionInput = document.getElementById("expression-input");
+            if (expressionInput) expressionInput.value = "";
+
+            // Clear the stack and table content (assuming these are global)
+            stack = [];
+            step = 0; // Reset step too!
+
+            // Clear the table content
+            const checkingTable = document.getElementById("checking-table");
+            if (checkingTable) {
+                checkingTable.innerHTML = `
+              <tr>
+                <th>Input</th>
+                <th>Stack</th>
+                <th>Action</th>
+              </tr>
+            `;
+            }
+
+            // Clear the final result
+            const finalResult = document.getElementById("final-result");
+            if (finalResult) finalResult.textContent = ""; // Ensure final result is cleared
+
+            // Hide the popup as well
+            document.getElementById("popup-container").style.display = "none";
+
+            // Call scrollToBottom if it exists (defensive check)
+            if (typeof scrollToBottom === 'function') {
+                scrollToBottom();
+            }
+        }
+    </script>
+
+    <script src="parenthesissim.js"></script>
+    <footer>
+        <div class="dept">
+            <p>Department of Computer Engineering, KJSIT
+                <br> Developed by : Simran Devrukhkar, Mahi Ghevariya, Aaryan Ghori
+                <br> Guided by : 
+                <a href="https://kjsit.somaiya.edu.in/en/view-member/220291/">Prof. Pradnya Bhangale</a>, <a href="https://kjsit.somaiya.edu.in/en/view-member/220292/">Prof. Priyanka
+                    Deshmukh</a>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

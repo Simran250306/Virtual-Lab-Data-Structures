@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doubly Linked List</title>
+    <link rel="stylesheet" href="../theory.css">
+    <script>
+        window.onscroll = function() {myFunction()};
+    
+        var header = document.getElementById("fixedNav");
+        var sticky = header.offsetTop;
+    
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+        </script>
+</head>
+
+<body>
+    <header>
+        <div id="headerContent">  <!-- Wrapper for content -->
+            <div id="menuToggle">&#9776;</div>  <!-- Menu Toggle Button -->
+            <div class="logo-container"> <!-- Logo container -->
+                <div class="img">
+                    <img src="../media/somaiya.png" alt="Somaiya Logo"/>
+                </div>
+                <div class="logo-text">Virtual Lab | Data Structures | Doubly Linked List</div>
+            </div>
+        </div>
+    </header>
+
+    <aside id="sidebar">
+        
+        <ul>
+            <li><a href="../home/home.php">Home</a></li>
+            <li><a href="../pdf/DATA STRUCTURES E-BOOK.pdf" target="_blank">E-Book</a></li>
+            <li><a href="../theory/theory.php">Theory</a></li>
+            <li>
+                <a href="#">Labs</a>
+                <ul class="dropdown">
+                    <li><a href="../exp1stack/stack.html">Experiment 1: Stacks</a></li>
+                    <hr/>
+                    <li><a href="../exp2/intopostfix.html">Experiment 2: Infix to postfix</a></li>
+                    <hr/>
+                    <li><a href="../exp3/exp3.html">Experiment 3: Applications of stack</a></li>
+                    <hr/>
+                    <li><a href="../exp3postfixeval/postfix.html">Postfix Evaluation</a></li>
+                    <hr/>
+                    <li><a href="../exp3zparenthesis/parenthesis.html">Parenthesis Checker</a></li>
+                    <hr/>
+                    <li><a href="../exp4linearqueue/lqueue.html">Experiment 4: Linear Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp5circularqueue/cqueue.html">Experiment 5 : Circular Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp5dequeue/dequeue.html">Double Ended Queue</a></li>
+                    <hr/>
+                    <li><a href="../exp6singlyll/singlyll.html">Experiment 6: Singly Linked List</a></li>
+                    <hr/>
+                    <li><a href="../exp7doublyll/doublyll.html">Experiment 7: Doubly Linked List</a></li>
+                    <hr/>
+                    <li><a href="../exp8bst/bst.html">Experiment 8: Binary Search Tree</a></li>
+                    <hr/>
+                    <li><a href="../exp8zavltree/avltree.html">AVL Tree</a></li>
+                    <hr/>
+                    <li><a href="../exp9graph/graph.html">Graph </a></li>
+                </ul>
+            </li>
+            <li><a href="../about/about.php">About Us</a></li>
+            <li><a href="../feedback/feedbackpg.php">Feedback</a></li>
+            <li><a href="../login/logout.php">Logout</a></li></ul>
+        <div id="labContentContainer"></div>
+    </aside>
+
+    <main>
+        <div class="content">
+            <!-- Fixed Navigation (Added here) -->
+        <nav id="fixedNav">
+            <a href="#aimSection">Aim</a>
+            <a href="#theorySection">Theory</a>
+            <a href="#algorithmSection">Algorithm</a>
+            <a href="/exp7doublyll/doublyllsim.html">Simulation</a>
+            <a href="../exp7doublyll/doublyllquiz.html">Quiz</a>
+            <a href="../feedback/10doublyllfb.php">Feedback</a>
+        </nav>
+
+            <div id="aimSection">
+                <p><b>Aim:</b>
+                    <div class='task'>Implement a Doubly Linked List.</div></p>
+            </div>
+
+            <div id="theorySection">
+                <p><b>Theory:</b>
+                    <div class='task'>
+                        A Doubly Linked List (DLL) is a type of linked list where each node holds three pieces of information:
+                        <br>  1.  Data: The actual value or information stored in the node.
+                       <br>   2.  Next Pointer: A reference (or pointer) to the next node in the list.
+                        <br>  3.  Previous Pointer: A reference (or pointer) to the previous node in the list.
+                         <br>  This bi-directional linkage makes traversal possible in both directions (from head to tail and tail to head), 
+                               unlike a singly linked list, which only allows traversal in one direction.
+                               As a result, DLLs are especially useful in scenarios where elements may need to be accessed in
+                               reverse order, or where frequent insertions and deletions are required.
+                         <div class='task2'></div>
+                         A Doubly Linked List has the following characteristics:
+           
+                        <li> Head Pointer: Points to the first node in the list.<br></li>
+                        <li> Tail Pointer: Points to the last node in the list.<br></li>
+                        <li> Traversal: You can traverse the list from the first node to the last, and vice versa,
+                          by following the next and prev pointers.<br></li>
+                         <li>Dynamic Size: The size of the list is not fixed, and nodes can be added or removed dynamically.<br></li>
+                    </div>
+                </p>
+            </div>
+
+            <div id="algorithmSection">
+                <p>
+                    <b>Algorithm: </b>
+                    <div class='task'>
+                        Insertion at End:
+
+                            <br>1. Create a new node.
+                            <li>Set its prev to the current tail and next to null.<br></li>
+                            <li>Update the current tail's next to point to the new node.<br></li>
+                            <li>Set the tail to the new node.<br></li>
+
+                            <br> 2.  Deletion from End:
+                            <li>Set the tail to the previous node.<br></li>
+                            <li>Update the new tail’s next to null.<br></li>
+
+                            <br> 3. Traversal (Forward):
+                            <li>Start from the head and follow next pointers until the end.<br></li>
+
+                            <br> 4. Traversal (Backward):
+                            <li>Start from the tail and follow prev pointers until the beginning.<br></li>
+                    </div>
+            </div>
+
+                <p><b>Simulation:</b>
+                    <div class='task button-task'>
+                      <a href="../exp7doublyll/doublyllsim.html"><button>Simulation of Doubly Linked List</button></a>
+                </div>
+
+                <p><b>Quiz:</b>
+                    <div class='task button-task'>
+                      <a href="../exp7doublyll/doublyllquiz.html"><button>Attempt Quiz</button></a>
+                  </div>
+
+                  <p><b>Feedback:</b>
+                    <div class='task button-task'>
+                      <a href="../feedback/10doublyllfb.php"><button>Feedback</button></a>
+                  </div>
+        </div>
+        <button id="topBtn" onclick="scrollToTop()">↑</button>
+    </main>
+
+    <footer>
+        <div class="dept">
+            <p>Department of Computer Engineering, KJSIT
+                <br>
+                Developed by : Simran Devrukhkar, Mahi Ghevariya, Aaryan Ghori
+                <br>
+                Guided by : <a href="https://kjsit.somaiya.edu.in/en/view-member/220291/">Prof. Pradnya Bhangale</a>, <a href="https://kjsit.somaiya.edu.in/en/view-member/220292/">Prof. Priyanka Deshmukh</a>
+            </p>
+        </div>
+    </footer>
+
+     <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const sidebar = document.getElementById("sidebar");
+
+        menuToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("show");
+        });
+
+        document.addEventListener("click", (event) => {
+            const isClickInside = sidebar.contains(event.target) || menuToggle.contains(event.target);
+            if (!isClickInside) {
+                sidebar.classList.remove("show");
+            }
+        });
+
+        window.onscroll = function () {
+            showScrollButton();
+        };
+        
+        function showScrollButton() {
+            let button = document.getElementById("topBtn");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                button.style.display = "block"; // Show when scrolled down
+            } else {
+                button.style.display = "none"; // Hide when at the top
+            }
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+</body>
+</html>
+
+
